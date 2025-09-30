@@ -8526,7 +8526,12 @@ color:black !important;
 	font-size:20px;
 }
 h2{
-	    font-size: 30px !important;
+	
+	font-size: 30px !important;
+
+    font-weight: 700 !important;
+    margin-bottom: 30px !important;
+    
 }
 /* ================================== rtl css End ================================== */
 /*# sourceMappingURL=main.css.map */
