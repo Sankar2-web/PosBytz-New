@@ -7573,7 +7573,7 @@ svg.radial-progress text {
 }
 
 .home-three .header.fixed-header {
-	    display: none;
+	
     position: fixed !important;
     margin-block-start: 0;
        background-color: #ffffff;
