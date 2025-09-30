@@ -5239,6 +5239,13 @@ input:focus, input:focus-visible {
 }
 
 @media (max-width: 768px) {
+	.logo img{
+	    font-size: 17px !important;
+    padding: 12px 15px 17px 9px !important;
+	}
+	.header .btn-main{
+		
+	}
 .home-three h1, .home-three .h1 {
     font-size: 23px !important;
     line-height: 30px !important;
