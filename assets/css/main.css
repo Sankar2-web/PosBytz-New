@@ -2445,10 +2445,18 @@ input:focus, input:focus-visible {
         width: 50%;
     }
 }
-
+.accordion-item .home-three h5, .home-three .h5 {
+    font-size: 17px !important;
+	font-weight: 500;
+}
+.task-management .home-three h3, .home-three .h3 {
+    font-size: 35px !important;
+}
+/*
 .container {
     max-width: 1400px;
 }
+*/
 
 @media (min-width: 992px) {
     .position-lg-absolute {
@@ -8373,6 +8381,10 @@ display: block !important;
 }
 
 @media (max-width: 768px) {
+	.btn {
+    padding-inline: 10px;
+    padding-block: 10px;
+}
     .grid-view .product-item-wrapper > div {
         width: 100%;
     }
@@ -8540,5 +8552,6 @@ h2{
     margin-bottom: 30px !important;
     
 }
+
 /* ================================== rtl css End ================================== */
 /*# sourceMappingURL=main.css.map */
