@@ -2449,9 +2449,7 @@ input:focus, input:focus-visible {
     font-size: 17px !important;
 	font-weight: 500;
 }
-.task-management .home-three h3, .home-three .h3 {
-    font-size: 35px !important;
-}
+
 /*
 .container {
     max-width: 1400px;
