@@ -149,25 +149,28 @@
     </div>
 
     <!-- Mobile Number with Country Code -->
-    <style>
-  /* input field padding adjust pannudhu */
+<style>
   .iti {
     width: 100%;
   }
-  .iti--separate-dial-code .iti__selected-flag {
-    background-color: transparent !important; /* grey bg remove */
+  /* flag area clean look */
+  .iti__selected-flag {
+    background-color: transparent !important;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
     padding-left: 15px;
   }
-  .iti--separate-dial-code input {
-    padding-left: 90px !important; /* dial code + flag ku space */
+  /* remove dial code text (+91) */
+  .iti__selected-dial-code {
+    display: none !important;
   }
   input#phone {
     border-radius: 50px !important;
     height: 55px;
+    padding-left: 60px !important; /* space for flag only */
   }
 </style>
+
 
 <div class="mb-4">
   <input id="phone" type="tel" class="form-control" placeholder="Enter mobile number">
@@ -1181,6 +1184,7 @@ ul.footer_social li a i:hover {
     </body>
 
 </html>
+
 
 
 
