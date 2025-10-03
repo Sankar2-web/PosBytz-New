@@ -169,6 +169,17 @@
     height: 55px;
     padding-left: 60px !important; /* space for flag only */
   }
+	/* common placeholder style */
+  ::placeholder {
+    font-size: 16px;   /* same size everywhere */
+    color: #777;       /* optional: lighter grey */
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    font-size: 16px;
+  }
+  ::-ms-input-placeholder { /* Edge */
+    font-size: 16px;
+  }
 </style>
 
 
@@ -1184,6 +1195,7 @@ ul.footer_social li a i:hover {
     </body>
 
 </html>
+
 
 
 
