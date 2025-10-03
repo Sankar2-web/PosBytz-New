@@ -180,6 +180,15 @@
   ::-ms-input-placeholder { /* Edge */
     font-size: 16px;
   }
+	  select.form-select {
+    font-size: 16px;         /* font size same as input placeholder */
+    color: #555;             /* default text color */
+  }
+
+  /* placeholder (first option) style */
+  select.form-select option[value=""] {
+    color: #999;             /* lighter shade for placeholder */
+  }
 </style>
 
 
@@ -1195,6 +1204,7 @@ ul.footer_social li a i:hover {
     </body>
 
 </html>
+
 
 
 
