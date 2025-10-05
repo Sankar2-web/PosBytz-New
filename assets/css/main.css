@@ -8550,6 +8550,17 @@ h2{
     margin-bottom: 30px !important;
     
 }
-
+.banner-three {
+    min-height: 100vh;
+    padding-block-start: 140px;
+    padding-block-end: 78px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background: radial-gradient(circle at 15% 20%, rgb(234, 254, 254) 0%, transparent 40%), radial-gradient(circle at 85% 40%, rgb(231, 216, 254) 0%, transparent 45%), rgb(255, 255, 255);
+}
+.clr {
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(240deg, rgb(255, 140, 0) 30%, rgb(255, 183, 51) 60%, rgb(255, 77, 0) 90%) text;
+}
 /* ================================== rtl css End ================================== */
 /*# sourceMappingURL=main.css.map */
