@@ -8562,5 +8562,8 @@ h2{
     -webkit-text-fill-color: transparent;
     background: linear-gradient(240deg, rgb(255, 140, 0) 30%, rgb(255, 183, 51) 60%, rgb(255, 77, 0) 90%) text;
 }
+.banner-three-thumb {
+    box-shadow: rgb(203, 212, 216) 2px 2px 20px 2px;
+}
 /* ================================== rtl css End ================================== */
 /*# sourceMappingURL=main.css.map */
