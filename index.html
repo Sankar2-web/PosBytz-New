@@ -3,6 +3,14 @@
 
 
 <head>
+	<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WL3HLD2');</script>
+<!-- End Google Tag Manager -->
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="">
@@ -32,7 +40,10 @@
 </head>
 
 <body>
-  
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WL3HLD2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 
 
@@ -152,21 +163,84 @@
     <div class="banner-three-thumb position-relative bg-white shadow-xl rounded-4 p-5" 
          style="border:1px solid #eee;">
         <h3 class="mb-5 fw-bold text-center" style="font-size:1.8rem; color:#111;">Book Your Free Demo</h3>
-        <form>
+       <form id="leadForm">
     <!-- Full Name -->
     <div class="mb-4">
         <input type="text" class="form-control form-control-lg rounded-pill shadow-sm px-4 py-3" 
-               placeholder="Full Name" required
-               style="border:1px solid #ddd; transition: all 0.3s; border-radius:50px;">
+               placeholder="Full Name" required id="name">
     </div>
 
     <!-- Email ID -->
     <div class="mb-4">
         <input type="email" class="form-control form-control-lg rounded-pill shadow-sm px-4 py-3" 
-               placeholder="Email Address" required
-               style="border:1px solid #ddd; transition: all 0.3s; border-radius:50px;">
+               placeholder="Email Address" required id="email">
     </div>
 
+    <!-- Mobile Number -->
+    <div class="mb-4">
+      <input id="phone" type="tel" class="form-control" placeholder="Enter mobile number" required>
+    </div>
+
+    <!-- Business Type -->
+    <div class="mb-4">
+        <select class="form-select form-select-lg rounded-pill shadow-sm px-4 py-3" required id="business_type">
+            <option value="">Select Business Type</option>
+            <option value="Restaurant">Restaurant</option>
+            <option value="Bar & Restaurant">Bar & Restaurant</option>
+            <option value="Cloud Kitchen">Cloud Kitchen</option>
+            <option value="Resto Bar & Pub">Resto Bar & Pub</option>
+            <option value="Others">Others</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg w-100 py-3 rounded-pill fw-bold" 
+            style="font-size:1.15rem; background:#ff8c00; border:none;">
+         Get a Free Demo
+    </button>
+
+    <p class="text-center mt-3" style="font-size:0.9rem; color:#666;">
+        By clicking register, I accept the 
+        <a href="https://posbytz.com/terms-and-conditions/" target="_blank" style="color:#ff8c00; text-decoration:none;">Terms & Conditions</a>.
+    </p>
+</form>
+
+<!-- JS to submit via AJAX -->
+<script>
+document.getElementById("leadForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        calling_code: "91", // India code
+        country_code: "IN",
+        business_name: document.getElementById("business_type").value,
+        location_name: "India",
+        business_type_id: "7",
+        source: "Website Form"
+    };
+
+    fetch('submit-lead.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(res => alert("Lead submitted successfully!"))
+    .catch(err => alert("Error submitting lead."));
+});
+</script>
+    </div>
+</div>
+			<script>
+  var input = document.querySelector("#phone");
+  window.intlTelInput(input, {
+    initialCountry: "ae", // default UAE
+    separateDialCode: true,
+    preferredCountries: ["ae", "in", "us"], // UAE first
+  });
+</script>
     <!-- Mobile Number with Country Code -->
 <style>
   .iti {
@@ -208,55 +282,7 @@
   select.form-select option[value=""] {
     color: black;             /* lighter shade for placeholder */
   }
-</style>
 
-
-<div class="mb-4">
-  <input id="phone" type="tel" class="form-control" placeholder="Enter mobile number">
-</div>
-
-<script>
-  var input = document.querySelector("#phone");
-  window.intlTelInput(input, {
-    initialCountry: "ae", // default UAE
-    separateDialCode: true,
-    preferredCountries: ["ae", "in", "us"], // UAE first
-  });
-</script>
-
-    <!-- Business Type -->
-    <div class="mb-4">
-        <select class="form-select form-select-lg rounded-pill shadow-sm px-4 py-3" required
-                style="border:1px solid #ddd; transition: all 0.3s; border-radius:50px;">
-            <option value="">Select Business Type</option>
-            <option value="Restaurant">Restaurant</option>
-            <option value="Bar & Restaurant">Bar & Restaurant</option>
-            <option value="Cloud Kitchen">Cloud Kitchen</option>
-            <option value="Resto Bar & Pub">Resto Bar & Pub</option>
-            <option value="Others">Others</option>
-        </select>
-    </div>
-
-    <!-- Submit Button -->
-    <button type="submit" class="btn btn-primary btn-lg w-100 py-3 rounded-pill fw-bold"
-            style="font-size:1.15rem; background:#ff8c00; border:none; 
-                   box-shadow:0 6px 16px rgba(0,123,255,0.3); transition: all 0.3s;">
-         Get a Free Demo
-    </button>
-
-    <!-- Terms & Conditions Note -->
-    <p class="text-center mt-3" style="font-size:0.9rem; color:#666;">
-        By clicking register, I accept the 
-        <a href="https://posbytz.com/terms-and-conditions/" target="_blank" style="color:#ff8c00; text-decoration:none;">Terms & Conditions</a>.
-    </p>
-</form>
-
-
-    </div>
-</div>
-
-<!-- Hover/focus effect CSS -->
-<style>
     .form-control:focus {
         border-color: #007bff;
         box-shadow: 0 0 10px rgba(0,123,255,0.2);
@@ -1516,6 +1542,7 @@ ul.footer_social li a i:hover {
     </body>
 
 </html>
+
 
 
 
