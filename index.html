@@ -213,21 +213,22 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
     const phone = document.getElementById("phone").value.trim();
     const businessType = document.getElementById("business_type").value;
 
-    if (!phone.match(/^\d{10}$/)) {
-        alert("Please enter a valid 10-digit phone number.");
+    // ✅ UAE phone validation (starts with 50, 52, 54, 55, 56, 58, etc. and 9 digits total)
+    if (!phone.match(/^(50|52|54|55|56|58)\d{7}$/)) {
+        alert("Please enter a valid UAE mobile number (e.g. 501234567).");
         return;
     }
 
     const data = {
         name,
         email,
-        phone,
-        calling_code: "971", // UAE code
-    country_code: "AE",  // ISO code for UAE
-    business_name: businessType,
-    location_name: "UAE",
-    business_type_id: "7",
-    source: "Website Form"
+        phone, // Example: 501234567
+        calling_code: "971",     // UAE calling code
+        country_code: "AE",      // ISO code for UAE
+        business_name: businessType,
+        location_name: "UAE",
+        business_type_id: "7",
+        source: "Website Form"
     };
 
     const submitBtn = e.target.querySelector("button[type='submit']");
@@ -258,6 +259,7 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
     }
 });
 </script>
+
 
     </div>
 </div>
@@ -1590,6 +1592,7 @@ ul.footer_social li a i:hover {
     </body>
 
 </html>
+
 
 
 
