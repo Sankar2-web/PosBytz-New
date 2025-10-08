@@ -204,33 +204,61 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </p>
 </form>
 
-<!-- JS to submit via AJAX -->
 <script>
-document.getElementById("leadForm").addEventListener("submit", function(e){
+document.getElementById("leadForm").addEventListener("submit", async function(e) {
     e.preventDefault();
 
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const businessType = document.getElementById("business_type").value;
+
+    if (!phone.match(/^\d{10}$/)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return;
+    }
+
     const data = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        phone: document.getElementById("phone").value,
-        calling_code: "91", // India code
-        country_code: "IN",
-        business_name: document.getElementById("business_type").value,
-        location_name: "India",
-        business_type_id: "7",
-        source: "Website Form"
+        name,
+        email,
+        phone,
+        calling_code: "971", // UAE code
+    country_code: "AE",  // ISO code for UAE
+    business_name: businessType,
+    location_name: "UAE",
+    business_type_id: "7",
+    source: "Website Form"
     };
 
-    fetch('submit-lead.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(res => alert("Lead submitted successfully!"))
-    .catch(err => alert("Error submitting lead."));
+    const submitBtn = e.target.querySelector("button[type='submit']");
+    submitBtn.textContent = "Submitting...";
+    submitBtn.disabled = true;
+
+    try {
+        const res = await fetch("submit-lead.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+
+        if (result.status) {
+            alert("✅ Lead submitted successfully!");
+            e.target.reset();
+        } else {
+            alert("⚠️ Failed: " + (result.message || "Please try again later."));
+        }
+    } catch (error) {
+        console.error(error);
+        alert("❌ Error submitting lead.");
+    } finally {
+        submitBtn.textContent = "Get a Free Demo";
+        submitBtn.disabled = false;
+    }
 });
 </script>
+
     </div>
 </div>
 			<script>
@@ -1542,6 +1570,7 @@ ul.footer_social li a i:hover {
     </body>
 
 </html>
+
 
 
 
