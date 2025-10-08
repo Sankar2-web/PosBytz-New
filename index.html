@@ -328,6 +328,26 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
         transform: translateY(-3px);
         box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     }
+	@media (max-width: 767px) {
+  /* Center both Google rating box & Get started button */
+  .tw-mt-12,
+  .tw-mt-9 {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* For flex elements, make them center properly */
+  .tw-mt-12.d-flex,
+  .tw-mt-9.d-flex {
+    justify-content: center !important;
+  }
+
+  /* Optional: add small top margin to separate them nicely */
+  .tw-mt-9 {
+    margin-top: 20px !important;
+  }
+}
+
 </style>
 
 
@@ -1570,6 +1590,7 @@ ul.footer_social li a i:hover {
     </body>
 
 </html>
+
 
 
 
