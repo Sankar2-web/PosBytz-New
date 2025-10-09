@@ -1,5 +1,5 @@
 <?php
-// Enable CORS (optional, only if client is on a different domain)
+// Enable CORS for all origins (adjust to your domain in production)
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-// Only allow POST
+// Only allow POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(['status' => false, 'message' => 'Method Not Allowed']);
@@ -22,18 +22,18 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);
 
+// Validate input
 if (!$data) {
     echo json_encode(['status' => false, 'message' => 'Invalid JSON']);
     exit;
 }
 
-// Validate required fields
 if (empty($data['name']) || empty($data['phone']) || empty($data['email'])) {
     echo json_encode(['status' => false, 'message' => 'Missing required fields']);
     exit;
 }
 
-// Initialize cURL to send lead to production API
+// Send lead to PosBytz Production API
 $ch = curl_init('https://partner-api.posbytz.com/partner-api/v1/leads/signup');
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
     'x-partner-domain: posbytz.com', // Production partner domain
@@ -42,8 +42,8 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, [
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true); // verify SSL
 
-// Execute request
 $response = curl_exec($ch);
 
 // Handle cURL errors
