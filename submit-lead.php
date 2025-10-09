@@ -1,5 +1,15 @@
 <?php
+// Enable CORS (optional, only if client is on a different domain)
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
 header('Content-Type: application/json');
+
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
 
 // Only allow POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -23,10 +33,10 @@ if (empty($data['name']) || empty($data['phone']) || empty($data['email'])) {
     exit;
 }
 
-// Initialize cURL
+// Initialize cURL to send lead to production API
 $ch = curl_init('https://partner-api.posbytz.com/partner-api/v1/leads/signup');
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'x-partner-domain: smartbytz.com',
+    'x-partner-domain: posbytz.com', // Production partner domain
     'Content-Type: application/json'
 ]);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
