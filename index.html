@@ -164,7 +164,7 @@
 		<div class="banner-three-thumb position-relative bg-white shadow-xl rounded-4 p-5" 
 			 style="border:1px solid #eee;">
 			<h3 class="mb-5 fw-bold text-center" style="font-size:1.8rem; color:#111;">Book Your Free Demo</h3>
-	<form id="leadForm" method="POST">
+	<form id="leadForm">
     <!-- Full Name -->
     <div class="mb-4">
         <input type="text" class="form-control form-control-lg rounded-pill shadow-sm px-4 py-3" 
@@ -201,35 +201,53 @@
         <a href="https://posbytz.com/terms-and-conditions/" target="_blank" style="color:#ff8c00; text-decoration:none;">Terms & Conditions</a>.
     </p>
 </form>
-
 <script>
-document.getElementById('leadForm').addEventListener('submit', async function(e) {
+document.getElementById("leadForm").addEventListener("submit", async function(e) {
     e.preventDefault();
 
     const form = e.target;
-    const formData = new FormData(form);
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+    const businessType = form.business_type.value;
+
+    const payload = {
+        name: name,
+        phone: phone,
+        calling_code: "91",
+        email: email,
+        country_code: "IN",
+        business_name: name + " Business",
+        location_name: "India",
+        business_type_id: "7", // static id
+        source: "Website Lead"
+    };
 
     try {
-        const response = await fetch('submit-lead.php', {
-            method: 'POST',
-            body: formData
+        const response = await fetch("https://partner-api.posbytz.com/partner-api/v1/leads/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "x-partner-domain": "posbytz.com"
+            },
+            body: JSON.stringify(payload)
         });
 
         const data = await response.json();
+        console.log(data);
 
-        if (data.status) {
-            alert('Lead submitted successfully!');
+        if (response.ok) {
+            alert("✅ Lead submitted successfully!");
             form.reset();
         } else {
-            alert('Failed to submit lead: ' + (data.response?.message || 'Unknown error'));
+            alert("❌ Error submitting lead: " + (data.message || "Unknown error"));
         }
     } catch (error) {
-        console.error('Error submitting lead:', error);
-        alert('Error submitting lead. Please try again later.');
+        console.error("Error:", error);
+        alert("⚠️ Something went wrong. Please try again.");
     }
 });
 </script>
-
 
 
 
@@ -1565,6 +1583,7 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
 		</body>
 
 	</html>
+
 
 
 
