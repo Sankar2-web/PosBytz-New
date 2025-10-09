@@ -213,7 +213,7 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
     const phone = document.getElementById("phone").value.trim();
     const businessType = document.getElementById("business_type").value;
 
-    // ✅ UAE phone validation (starts with 50, 52, 54, 55, 56, 58, etc. and 9 digits total)
+    // UAE phone validation
     if (!phone.match(/^(50|52|54|55|56|58)\d{7}$/)) {
         alert("Please enter a valid UAE mobile number (e.g. 501234567).");
         return;
@@ -222,9 +222,9 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
     const data = {
         name,
         email,
-        phone, // Example: 501234567
-        calling_code: "971",     // UAE calling code
-        country_code: "AE",      // ISO code for UAE
+        phone,
+        calling_code: "971",
+        country_code: "AE",
         business_name: businessType,
         location_name: "UAE",
         business_type_id: "7",
@@ -242,6 +242,10 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
             body: JSON.stringify(data)
         });
 
+        if (!res.ok) {
+            throw new Error(`Server error: ${res.status}`);
+        }
+
         const result = await res.json();
 
         if (result.status) {
@@ -252,12 +256,13 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
         }
     } catch (error) {
         console.error(error);
-        alert("❌ Error submitting lead.");
+        alert("❌ Error submitting lead: " + error.message);
     } finally {
         submitBtn.textContent = "Get a Free Demo";
         submitBtn.disabled = false;
     }
 });
+
 </script>
 
 
@@ -1592,6 +1597,7 @@ ul.footer_social li a i:hover {
     </body>
 
 </html>
+
 
 
 
