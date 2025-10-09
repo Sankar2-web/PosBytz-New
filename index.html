@@ -164,110 +164,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="banner-three-thumb position-relative bg-white shadow-xl rounded-4 p-5" 
          style="border:1px solid #eee;">
         <h3 class="mb-5 fw-bold text-center" style="font-size:1.8rem; color:#111;">Book Your Free Demo</h3>
-    <form id="leadForm" method="POST" action="submit-lead.php
-">
+    <form id="leadForm" method="POST" action="submit-lead.php">
     <!-- Full Name -->
-    <div class="mb-4">
-        <input type="text" class="form-control form-control-lg rounded-pill shadow-sm px-4 py-3" 
-               placeholder="Full Name" required id="name">
-    </div>
+    <input type="text" name="name" placeholder="Full Name" required>
 
-    <!-- Email ID -->
-    <div class="mb-4">
-        <input type="email" class="form-control form-control-lg rounded-pill shadow-sm px-4 py-3" 
-               placeholder="Email Address" required id="email">
-    </div>
+    <!-- Email -->
+    <input type="email" name="email" placeholder="Email Address" required>
 
-    <!-- Mobile Number -->
-    <div class="mb-4">
-      <input id="phone" type="tel" class="form-control" placeholder="Enter mobile number" required>
-    </div>
+    <!-- Phone -->
+    <input type="tel" name="phone" placeholder="Phone" required>
 
     <!-- Business Type -->
-    <div class="mb-4">
-        <select class="form-select form-select-lg rounded-pill shadow-sm px-4 py-3" required id="business_type">
-            <option value="">Select Business Type</option>
-            <option value="Restaurant">Restaurant</option>
-            <option value="Bar & Restaurant">Bar & Restaurant</option>
-            <option value="Cloud Kitchen">Cloud Kitchen</option>
-            <option value="Resto Bar & Pub">Resto Bar & Pub</option>
-            <option value="Others">Others</option>
-        </select>
-    </div>
+    <select name="business_type" required>
+        <option value="">Select Business Type</option>
+        <option value="Restaurant">Restaurant</option>
+        <option value="Bar & Restaurant">Bar & Restaurant</option>
+        <option value="Cloud Kitchen">Cloud Kitchen</option>
+        <option value="Resto Bar & Pub">Resto Bar & Pub</option>
+        <option value="Others">Others</option>
+    </select>
 
-    <button type="submit" class="btn btn-primary btn-lg w-100 py-3 rounded-pill fw-bold" 
-            style="font-size:1.15rem; background:#ff8c00; border:none;">
-         Get a Free Demo
-    </button>
+    <!-- Hidden fields for country/location -->
+    <input type="hidden" name="calling_code" value="971">
+    <input type="hidden" name="country_code" value="AE">
+    <input type="hidden" name="location_name" value="UAE">
 
-    <p class="text-center mt-3" style="font-size:0.9rem; color:#666;">
-        By clicking register, I accept the 
-        <a href="https://posbytz.com/terms-and-conditions/" target="_blank" style="color:#ff8c00; text-decoration:none;">Terms & Conditions</a>.
-    </p>
+    <button type="submit">Get a Free Demo</button>
 </form>
 <script>
-document.getElementById('leadForm').addEventListener('submit', async function(e) {
-    e.preventDefault(); // prevent default form submission
-
-    // Collect form values
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const businessType = document.getElementById('business_type').value;
-
-    // Optional: basic validation
-    if(!name || !email || !phone || !businessType) {
-        alert("Please fill all required fields!");
-        return;
-    }
-
-    // Map your form business types to API business_type_id
-    let business_type_id = "7"; // default
-    switch(businessType) {
-        case "Restaurant": business_type_id = "1"; break;
-        case "Bar & Restaurant": business_type_id = "2"; break;
-        case "Cloud Kitchen": business_type_id = "3"; break;
-        case "Resto Bar & Pub": business_type_id = "4"; break;
-        case "Others": business_type_id = "7"; break;
-    }
-
-    // API request payload for UAE
-    const payload = {
-        name: name,
-        phone: phone,
-        calling_code: "971",      // UAE country code
-        email: email,
-        country_code: "AE",       // UAE
-        business_name: businessType,
-        location_name: "UAE",
-        business_type_id: business_type_id,
-        source: "Website Form"
-    };
-
-    try {
-        const response = await fetch('https://partner-api.posbytz.com/partner-api/v1/leads/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'x-partner-domain': 'posbytz.com'  // production
-            },
-            body: JSON.stringify(payload)
-        });
-
-        const data = await response.json();
-
-        if(response.ok) {
-            alert("Lead submitted successfully!");
-            document.getElementById('leadForm').reset();
-        } else {
-            console.error(data);
-            alert("Failed to submit lead. Please try again.");
-        }
-
-    } catch (error) {
-        console.error(error);
-        alert("Error submitting lead. Check console for details.");
-    }
+document.addEventListener('DOMContentLoaded', function(){
+    document.getElementById('leadForm').submit();
 });
 </script>
 
@@ -1604,6 +1530,7 @@ ul.footer_social li a i:hover {
     </body>
 
 </html>
+
 
 
 
