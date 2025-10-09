@@ -1,9 +1,21 @@
 <?php
 header('Content-Type: application/json');
 
-// Get the incoming JSON payload
+// Only allow POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['status' => false, 'message' => 'Method Not Allowed']);
+    exit;
+}
+
+// Get JSON input
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);
+
+if (!$data) {
+    echo json_encode(['status' => false, 'message' => 'Invalid JSON']);
+    exit;
+}
 
 // Validate required fields
 if (empty($data['name']) || empty($data['phone']) || empty($data['email'])) {
@@ -12,7 +24,7 @@ if (empty($data['name']) || empty($data['phone']) || empty($data['email'])) {
 }
 
 // Initialize cURL
-$ch = curl_init('http://partner-api.posbytz.com/partner-api/v1/leads/signup');
+$ch = curl_init('https://partner-api.posbytz.com/partner-api/v1/leads/signup');
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
     'x-partner-domain: smartbytz.com',
     'Content-Type: application/json'
