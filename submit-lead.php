@@ -1,15 +1,5 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    // Map business type to API ID
-    $business_type_id = "7"; // default
-    switch($_POST['business_type']){
-        case "Restaurant": $business_type_id = "1"; break;
-        case "Bar & Restaurant": $business_type_id = "2"; break;
-        case "Cloud Kitchen": $business_type_id = "3"; break;
-        case "Resto Bar & Pub": $business_type_id = "4"; break;
-        case "Others": $business_type_id = "7"; break;
-    }
-
     $data = [
         "name" => $_POST['name'],
         "phone" => $_POST['phone'],
@@ -18,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         "country_code" => $_POST['country_code'], // "IN" or "AE"
         "business_name" => $_POST['business_type'],
         "location_name" => $_POST['location_name'], // "India" or "UAE"
-        "business_type_id" => $business_type_id,
+        "business_type_id" => $_POST['business_type_id'],
         "source" => "Website Form"
     ];
 
