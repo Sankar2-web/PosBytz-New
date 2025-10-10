@@ -205,49 +205,45 @@
 document.getElementById("leadForm").addEventListener("submit", async function(e) {
     e.preventDefault();
 
-    const form = e.target;
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const phone = form.phone.value.trim();
-    const businessType = form.business_type.value;
+    // Get field values
+    const name = document.querySelector('input[name="name"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    const phone = document.getElementById('phone').value;
+    const business_type = document.querySelector('select[name="business_type"]').value;
 
-    const payload = {
+    // Prepare data
+    const data = {
         name: name,
-        phone: phone,
-        calling_code: "91",
         email: email,
-        country_code: "IN",
-        business_name: name + " Business",
-        location_name: "India",
-        business_type_id: "7", // static id
-        source: "Website Lead"
+        phone: phone,
+        business_type: business_type
     };
 
     try {
-        const response = await fetch("https://partner-api.posbytz.com/partner-api/v1/leads/signup", {
+        const response = await fetch("http://localhost/api/lead.php", { // 👈 replace with your Postman API URL
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
-                "x-partner-domain": "posbytz.com"
+                "Content-Type": "application/json"
             },
-            body: JSON.stringify(payload)
+            body: JSON.stringify(data)
         });
 
-        const data = await response.json();
-        console.log(data);
+        const result = await response.json();
+        console.log(result);
 
-        if (response.ok) {
-            alert("✅ Lead submitted successfully!");
-            form.reset();
+        if (result.status) {
+            alert("Lead submitted successfully!");
         } else {
-            alert("❌ Error submitting lead: " + (data.message || "Unknown error"));
+            alert("Error: " + result.message);
         }
+
     } catch (error) {
-        console.error("Error:", error);
-        alert("⚠️ Something went wrong. Please try again.");
+        console.error("Error submitting form:", error);
+        alert("Something went wrong!");
     }
 });
 </script>
+
 
 
 
@@ -1583,6 +1579,7 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
 		</body>
 
 	</html>
+
 
 
 
