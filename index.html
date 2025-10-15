@@ -201,6 +201,7 @@
 									<!-- Mobile Number -->
 									<div class="mb-4"> <input id="phone" name="phone" type="tel" class="form-control"
 											placeholder="Enter mobile number" required> </div>
+									
 									<!-- Business Type -->
 									<div class="mb-4">
 										<select class="form-select form-select-lg rounded-pill shadow-sm px-4 py-3"
@@ -1776,8 +1777,24 @@
           placeholder="Email Address" required name="email">
       </div>
       <div class="mb-4">
-        <input id="phone" name="phone" type="tel" class="form-control" placeholder="Enter mobile number" required>
+  <div class="iti iti--allow-dropdown iti--separate-dial-code">
+    <div class="iti__flag-container">
+      <div class="iti__selected-flag" role="combobox" aria-controls="iti-0__country-listbox" aria-owns="iti-0__country-listbox" aria-expanded="false" tabindex="0" title="United Arab Emirates (‫الإمارات العربية المتحدة‬‎): +971" aria-activedescendant="iti-0__item-ae-preferred">
+        <div class="iti__flag iti__ae"></div>
+        <div class="iti__selected-dial-code">+971</div>
+        <div class="iti__arrow"></div>
       </div>
+      <ul class="iti__country-list iti__hide" id="iti-0__country-listbox" role="listbox" aria-label="List of countries">
+        <li class="iti__country iti__preferred iti__active" tabindex="-1" id="iti-0__item-ae-preferred" role="option" data-dial-code="971" data-country-code="ae" aria-selected="true">
+          <div class="iti__flag-box"><div class="iti__flag iti__ae"></div></div>
+          <span class="iti__country-name">United Arab Emirates (‫الإمارات العربية المتحدة‬‎)</span>
+          <span class="iti__dial-code">+971</span>
+        </li>
+      </ul>
+    </div>
+    <input id="phone" name="phone" type="tel" class="form-control rounded-pill shadow-sm px-4 py-3" placeholder="Enter mobile number" required>
+  </div>
+</div>
 
       <div class="mb-4">
         <select class="form-select form-select-lg rounded-pill shadow-sm px-4 py-3" required name="business_type">
@@ -1805,15 +1822,37 @@
 </div>
 
 <!-- JS for intlTelInput -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/intlTelInput.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/css/intlTelInput.min.css"/>
+
 <script>
   const input = document.querySelector("#phone");
-  window.intlTelInput(input, {
-    initialCountry: "ae", // Default country: UAE
-    separateDialCode: true,
-    preferredCountries: ["ae", "in", "us"],
+  const iti = window.intlTelInput(input, {
+    initialCountry: "ae",         // Default country UAE +971
+    separateDialCode: true,       // Shows +971 separately
+    preferredCountries: ["ae","in","us"],
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/utils.js"
   });
 </script>
 
+<style>
+  .iti {
+    width: 100%;
+  }
+
+  .iti__selected-flag {
+    background-color: transparent !important;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    padding-left: 15px;
+  }
+
+  input#phone {
+    border-radius: 50px !important;
+    height: 55px;
+    padding-left: 80px !important; /* Make enough space for the dial code */
+  }
+</style>
 <!-- JS for Popup -->
 <script>
   const popup = document.getElementById("popupForm");
@@ -1968,6 +2007,8 @@ input#phone {
     initialCountry: "ae",
     separateDialCode: true,
     preferredCountries: ["ae", "in", "us"],
+	      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/utils.js"
+
   });
 </script>
 			<!-- Footer -->
