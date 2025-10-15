@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html lang="en" class="home-three crm-page">
 
 
@@ -14,9 +14,7 @@
 		})(window, document, 'script', 'dataLayer', 'GTM-WL3HLD2');</script>
 	<!-- End Google Tag Manager -->
 
-	<meta charset="UTF-8ERP Integrations
-
-
+	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="">
 	<meta name="robots" content="INDEX,FOLLOW">
@@ -42,6 +40,9 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<!-- POPUP FORM -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"></script>
 
 </head>
 
@@ -97,8 +98,8 @@
 						</div>
 						<!-- Logo End  -->
 						<div class="d-flex align-items-center tw-gap-7 ">
-							<a href="#home"
-								class="btn btn-main hover-style-one  tw-rounded-md  fw-bold d-flex align-items-center tw-gap-2"
+							<a href=""
+								class="demo-btn btn btn-main hover-style-one  tw-rounded-md  fw-bold d-flex align-items-center tw-gap-2"
 								style="background: linear-gradient(270deg, #ff8c00 0%, #ff8c00 100%) !important;">
 								Get Your Free Demo
 
@@ -224,73 +225,7 @@
 											style="color:#ff8c00; text-decoration:none;">Terms & Conditions</a>.
 									</p>
 								</form>
-								<script>
-
-									document.getElementById("leadForm").addEventListener("submit", async function (e) {
-										e.preventDefault();
-
-										// Get field values
-										const name = document.querySelector('input[name="name"]').value.trim();
-										const bname = document.querySelector('input[name="bname"]').value.trim();
-										const email = document.querySelector('input[name="email"]').value.trim();
-										const phoneInput = window.intlTelInputGlobals.getInstance(document.querySelector("#phone"));
-										const phone = document.querySelector("#phone").value.trim();
-										const calling_code = phoneInput.getSelectedCountryData().dialCode;
-										const country_code = phoneInput.getSelectedCountryData().iso2.toUpperCase();
-										const country_name = phoneInput.getSelectedCountryData().name.toUpperCase();
-										const business_type = document.querySelector('select[name="business_type"]').value;
-										const cleanName = country_name.replace(/\s*\(.*?\)\s*/g, "").trim();
-										console.log({ country_code })
-										console.log({ cleanName })
-										console.log({ business_type })
-										// Prepare data as per API spec
-										const payload = {
-											name: name,
-											phone: phone,
-											calling_code: calling_code,
-											email: email,
-											country_code: country_code,
-											business_name: bname || "Demo Business",
-											location_name: cleanName,
-											business_type_id: "7", // fixed as per API requirement
-											source: "PosBytz"
-										};
-										console.log({ payload });
-										try {
-											const response = await fetch("http://partner-api.posbytz.com/partner-api/v1/leads/signup", {
-												method: "POST",
-												headers: {
-													"Content-Type": "application/json",
-													"x-partner-domain": "posbytz.com"
-												},
-												body: JSON.stringify(payload)
-											});
-
-											if (!response.ok) {
-												throw new Error("Network response was not ok");
-											}
-
-											const result = await response.json();
-											console.log("API Response:", result);
-											alert("Thank you! Your demo request has been submitted successfully.");
-
-											document.getElementById("leadForm").reset();
-
-										} catch (error) {
-											console.error("Error submitting form:", error);
-											alert("Something went wrong while submitting your request.");
-										}
-									});
-								</script>
-
-
-
-
-
-
-							</div>
-						</div>
-						<script>
+										<script>
 							var input = document.querySelector("#phone");
 							window.intlTelInput(input, {
 								initialCountry: "ae", // default UAE
@@ -399,6 +334,73 @@
 						</style>
 
 
+								<script>
+
+									document.getElementById("leadForm").addEventListener("submit", async function (e) {
+										e.preventDefault();
+
+										// Get field values
+										const name = document.querySelector('input[name="name"]').value.trim();
+										const bname = document.querySelector('input[name="bname"]').value.trim();
+										const email = document.querySelector('input[name="email"]').value.trim();
+										const phoneInput = window.intlTelInputGlobals.getInstance(document.querySelector("#phone"));
+										const phone = document.querySelector("#phone").value.trim();
+										const calling_code = phoneInput.getSelectedCountryData().dialCode;
+										const country_code = phoneInput.getSelectedCountryData().iso2.toUpperCase();
+										const country_name = phoneInput.getSelectedCountryData().name.toUpperCase();
+										const business_type = document.querySelector('select[name="business_type"]').value;
+										const cleanName = country_name.replace(/\s*\(.*?\)\s*/g, "").trim();
+										console.log({ country_code })
+										console.log({ cleanName })
+										console.log({ business_type })
+										// Prepare data as per API spec
+										const payload = {
+											name: name,
+											phone: phone,
+											calling_code: calling_code,
+											email: email,
+											country_code: country_code,
+											business_name: bname || "Demo Business",
+											location_name: cleanName,
+											business_type_id: "7", // fixed as per API requirement
+											source: "PosBytz"
+										};
+										console.log({ payload });
+										try {
+											const response = await fetch("http://partner-api.posbytz.com/partner-api/v1/leads/signup", {
+												method: "POST",
+												headers: {
+													"Content-Type": "application/json",
+													"x-partner-domain": "posbytz.com"
+												},
+												body: JSON.stringify(payload)
+											});
+
+											if (!response.ok) {
+												throw new Error("Network response was not ok");
+											}
+
+											const result = await response.json();
+											console.log("API Response:", result);
+											alert("Thank you! Your demo request has been submitted successfully.");
+
+											document.getElementById("leadForm").reset();
+
+										} catch (error) {
+											console.error("Error submitting form:", error);
+											alert("Something went wrong while submitting your request.");
+										}
+									});
+								</script>
+
+
+
+
+
+
+							</div>
+						</div>
+				
 					</div>
 				</div>
 			</section>
@@ -1519,7 +1521,7 @@
 									</div>
 									<div class="tw-mt-9 aos-init" data-aos="fade-up"
 										data-aos-anchor-placement="top-bottom" data-aos-duration="900">
-										<a href="#" id="openPopup" class="btn-main" class="hover--translate-y-1 active--translate-y-scale-9 btn button--stroke align-items-center justify-content-center tw-gap-5 group active--translate-y-2 tw-px-10 tw-py-505 fw-bold rounded-pill btn-main hover-style-one common-shadow-inset-one"
+										<a class="demo-btn hover--translate-y-1 active--translate-y-scale-9 btn button--stroke align-items-center justify-content-center tw-gap-5 group active--translate-y-2 tw-px-10 tw-py-505 fw-bold rounded-pill btn-main hover-style-one common-shadow-inset-one"
 											data-block="button"
 											style="background: linear-gradient(270deg, #ff8c00 0%, #ff8c00 100%) !important;">
 											<span class="button__flair"
@@ -1739,13 +1741,14 @@
 
 							<div class="d-flex justify-content-center tw-gap-6 tw-mt-7" data-aos="fade-up"
 								data-aos-duration="700">
-								<a href="#"  id="openPopup" class="btn-main"
-									class="btn btn-main hover-style-one button--stroke d-inline-flex align-items-center justify-content-center tw-gap-2 tw-px-12 tw-py-4 fw-bold rounded-2xl">
+								<a href=""
+									class="demo-btn btn btn-main hover-style-one button--stroke d-inline-flex align-items-center justify-content-center tw-gap-2 tw-px-12 tw-py-4 fw-bold rounded-2xl">
 									<span class="button__label">Book Your Free Demo</span>
 								</a>
 
 
 							</div>
+		
 						</div>
 
 
@@ -1755,6 +1758,218 @@
 			</section>
 			<!-- ================================= Section 9 End ============================== -->
 
+<div id="popupForm" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn">&times;</span>
+
+    <form id="leadForm">
+      <div class="mb-4">
+        <input type="text" class="form-control form-control-lg rounded-pill shadow-sm px-4 py-3"
+          placeholder="Full Name" required name="name">
+      </div>
+      <div class="mb-4">
+        <input type="text" class="form-control form-control-lg rounded-pill shadow-sm px-4 py-3"
+          placeholder="Business Name" required name="bname">
+      </div>
+      <div class="mb-4">
+        <input type="email" class="form-control form-control-lg rounded-pill shadow-sm px-4 py-3"
+          placeholder="Email Address" required name="email">
+      </div>
+      <div class="mb-4">
+        <input id="phone" name="phone" type="tel" class="form-control" placeholder="Enter mobile number" required>
+      </div>
+
+      <div class="mb-4">
+        <select class="form-select form-select-lg rounded-pill shadow-sm px-4 py-3" required name="business_type">
+          <option value="">Select Business Type</option>
+          <option value="Restaurant">Restaurant</option>
+          <option value="Bar & Restaurant">Bar & Restaurant</option>
+          <option value="Cloud Kitchen">Cloud Kitchen</option>
+          <option value="Resto Bar & Pub">Resto Bar & Pub</option>
+          <option value="Others">Others</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg w-100 py-3 rounded-pill fw-bold"
+        style="font-size:1.15rem; background:#ff8c00; border:none;">
+        Get a Free Demo
+      </button>
+
+      <p class="text-center mt-3" style="font-size:0.9rem; color:#666;">
+        By clicking register, I accept the
+        <a href="https://posbytz.com/terms-and-conditions/" target="_blank"
+          style="color:#ff8c00; text-decoration:none;">Terms & Conditions</a>.
+      </p>
+    </form>
+  </div>
+</div>
+
+<!-- JS for intlTelInput -->
+<script>
+  const input = document.querySelector("#phone");
+  window.intlTelInput(input, {
+    initialCountry: "ae", // Default country: UAE
+    separateDialCode: true,
+    preferredCountries: ["ae", "in", "us"],
+  });
+</script>
+
+<!-- JS for Popup -->
+<script>
+  const popup = document.getElementById("popupForm");
+  const closeBtn = document.querySelector(".close-btn");
+  const demoButtons = document.querySelectorAll(".demo-btn");
+
+  demoButtons.forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.preventDefault();
+      popup.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    popup.classList.remove("active");
+    document.body.style.overflow = "auto";
+  });
+
+  window.addEventListener("click", e => {
+    if (e.target === popup) {
+      popup.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+  });
+</script>
+
+<!-- CSS -->
+<style>
+  .popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 15px;
+  }
+
+  .popup-overlay.active {
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .popup-content {
+    background: #fff;
+    border-radius: 25px;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s ease;
+  }
+
+  .close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    color: #000;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .close-btn:hover {
+    color: #ff8c00;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+ .iti {
+  width: 100%;
+}
+
+.iti__selected-flag {
+  background-color: transparent !important;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  padding-left: 15px;
+}
+
+/* REMOVE this block (it hides the country code) */
+/* .iti__selected-dial-code {
+  display: none !important;
+} */
+
+input#phone {
+  border-radius: 50px !important;
+  height: 55px;
+  padding-left: 60px !important;
+}
+
+
+  ::placeholder {
+    font-size: 17px;
+    color: black;
+  }
+
+  select.form-select {
+    font-size: 17px;
+    color: black;
+  }
+
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+    outline: none;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+    box-shadow: 0 8px 20px rgba(0, 86, 179, 0.3);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 600px) {
+    .popup-content {
+      padding: 25px 20px;
+    }
+
+    .close-btn {
+      right: 15px;
+      top: 10px;
+      font-size: 24px;
+    }
+  }
+</style>
+
+<script>
+  const input = document.querySelector("#phone");
+  const iti = window.intlTelInput(input, {
+    initialCountry: "ae",
+    separateDialCode: true,
+    preferredCountries: ["ae", "in", "us"],
+  });
+</script>
 			<!-- Footer -->
 			<div class="footer">
 				<div class="container-fluid px-0">
@@ -1897,154 +2112,7 @@
 
 		</div>
 	</div>
-<!-- ✅ Popup Form -->
-<div class="popup-overlay" id="popupForm">
-    <div class="popup-box">
-        <span class="close-btn" id="closePopup">&times;</span>
-   	<form id="leadForm">
-									<!-- Full Name -->
-									<div class="mb-4">
-										<input type="text"
-											class="form-control form-control-lg rounded-pill shadow-sm px-4 py-3"
-											placeholder="Full Name" required name="name">
-									</div>
-									<div class="mb-4">
-										<input type="text"
-											class="form-control form-control-lg rounded-pill shadow-sm px-4 py-3"
-											placeholder="Business Name" required name="bname">
-									</div>
 
-									<!-- Email ID -->
-									<div class="mb-4">
-										<input type="email"
-											class="form-control form-control-lg rounded-pill shadow-sm px-4 py-3"
-											placeholder="Email Address" required name="email">
-									</div>
-
-
-									<!-- Mobile Number -->
-									<div class="mb-4"> <input id="phone" name="phone" type="tel" class="form-control"
-											placeholder="Enter mobile number" required> </div>
-									<!-- Business Type -->
-									<div class="mb-4">
-										<select class="form-select form-select-lg rounded-pill shadow-sm px-4 py-3"
-											required name="business_type">
-											<option value="">Select Business Type</option>
-											<option value="Restaurant">Restaurant</option>
-											<option value="Bar & Restaurant">Bar & Restaurant</option>
-											<option value="Cloud Kitchen">Cloud Kitchen</option>
-											<option value="Resto Bar & Pub">Resto Bar & Pub</option>
-											<option value="Others">Others</option>
-										</select>
-									</div>
-
-									<button type="submit" class="btn btn-primary btn-lg w-100 py-3 rounded-pill fw-bold"
-										style="font-size:1.15rem; background:#ff8c00; border:none;">
-										Get a Free Demo
-									</button>
-
-									<p class="text-center mt-3" style="font-size:0.9rem; color:#666;">
-										By clicking register, I accept the
-										<a href="https://posbytz.com/terms-and-conditions/" target="_blank"
-											style="color:#ff8c00; text-decoration:none;">Terms & Conditions</a>.
-									</p>
-								</form>
-    </div>
-</div>
-
-<script>
-    const openPopup = document.getElementById('openPopup');
-    const popup = document.getElementById('popupForm');
-    const closePopup = document.getElementById('closePopup');
-
-    openPopup.addEventListener('click', function(e) {
-        e.preventDefault();
-        popup.style.display = 'flex';
-    });
-
-    closePopup.addEventListener('click', function() {
-        popup.style.display = 'none';
-    });
-
-    // Close popup when clicking outside the form
-    window.addEventListener('click', function(e) {
-        if (e.target === popup) {
-            popup.style.display = 'none';
-        }
-    });
-</script>
-	<style>
-  
-
-    /* Popup overlay */
-    .popup-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.6);
-        display: none;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-    }
-
-    /* Popup box */
-    .popup-box {
-        background: #fff;
-        padding: 30px;
-        border-radius: 20px;
-        width: 90%;
-        max-width: 500px;
-        position: relative;
-        box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-        animation: popupFadeIn 0.3s ease;
-    }
-
-    @keyframes popupFadeIn {
-        from {transform: scale(0.8); opacity: 0;}
-        to {transform: scale(1); opacity: 1;}
-    }
-
-    /* Close button */
-    .close-btn {
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        font-size: 24px;
-        font-weight: bold;
-        color: #333;
-        cursor: pointer;
-    }
-
-
-    /* Form styling */
-    .form-control, .form-select {
-        width: 100%;
-        padding: 12px 20px;
-        border-radius: 50px;
-        border: 1px solid #ccc;
-        margin-bottom: 15px;
-        font-size: 16px;
-    }
-
-    .btn-primary {
-        background: #ff8c00;
-        border: none;
-        color: white;
-        padding: 12px;
-        border-radius: 50px;
-        font-size: 18px;
-        width: 100%;
-        cursor: pointer;
-    }
-
-    .btn-primary:hover {
-        background: #e57a00;
-    }
-
-</style>
 
 	<!-- Jquery js -->
 	<script src="assets/js/jquery-3.7.1.min.js"></script>
@@ -2081,9 +2149,4 @@
 
 </body>
 
-
 </html>
-
-
-
-
