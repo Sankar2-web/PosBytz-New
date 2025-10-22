@@ -2,6 +2,7 @@
 <html lang="en" class="home-three crm-page">
 
 
+
 <head>
 	<!-- Google Tag Manager -->
 	<script>(function (w, d, s, l, i) {
@@ -10,7 +11,7 @@
 					new Date().getTime(), event: 'gtm.js'
 			}); var f = d.getElementsByTagName(s)[0],
 				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+					'../www.googletagmanager.com/gtm5445.html?id=' + i + dl; f.parentNode.insertBefore(j, f);
 		})(window, document, 'script', 'dataLayer', 'GTM-WL3HLD2');</script>
 	<!-- End Google Tag Manager -->
 
@@ -37,12 +38,12 @@
 	<link rel="stylesheet" href="assets/css/satoshi.css">
 	<!-- Main css -->
 	<link rel="stylesheet" href="assets/css/main.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
+	<script src="../cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap" rel="stylesheet">
 <!-- POPUP FORM -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"></script>
+<link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.min.html" />
+<script src="../cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"></script>
 
 </head>
 
@@ -74,7 +75,7 @@
 		</button>
 
 		<div class="mobile-menu__inner">
-			<a href="index.html" target="_blank" class="mobile-menu__logo">
+			<a href="index-2.html" target="_blank" class="mobile-menu__logo">
 				<img src="assets/images/logo.svg" alt="Logo">
 			</a>
 
@@ -92,13 +93,13 @@
 					<nav class="d-flex align-items-center justify-content-between position-relative">
 						<!-- Logo Start -->
 						<div class="logo">
-							<a href="index.html" class="link hover--translate-y-1 active--translate-y-scale-9">
+							<a href="index-2.html" class="link hover--translate-y-1 active--translate-y-scale-9">
 								<img src="assets/images/logo.svg" alt="Logo" class="max-w-200-px">
 							</a>
 						</div>
 						<!-- Logo End  -->
 						<div class="d-flex align-items-center tw-gap-7 ">
-							<a href=""
+							<a href="#"
 								class="demo-btn btn btn-main hover-style-one  tw-rounded-md  fw-bold d-flex align-items-center tw-gap-2"
 								style="background: linear-gradient(270deg, #ff8c00 0%, #ff8c00 100%) !important;">
 								Get Your Free Demo
@@ -226,14 +227,6 @@
 											style="color:#ff8c00; text-decoration:none;">Terms & Conditions</a>.
 									</p>
 								</form>
-										<script>
-							var input = document.querySelector("#phone");
-							window.intlTelInput(input, {
-								initialCountry: "ae", // default UAE
-								separateDialCode: true,
-								preferredCountries: ["ae", "in", "us"], // UAE first
-							});
-						</script>
 						<!-- Mobile Number with Country Code -->
 						<style>
 							.iti {
@@ -335,64 +328,6 @@
 						</style>
 
 
-								<script>
-
-									document.getElementById("leadForm").addEventListener("submit", async function (e) {
-										e.preventDefault();
-
-										// Get field values
-										const name = document.querySelector('input[name="name"]').value.trim();
-										const bname = document.querySelector('input[name="bname"]').value.trim();
-										const email = document.querySelector('input[name="email"]').value.trim();
-										const phoneInput = window.intlTelInputGlobals.getInstance(document.querySelector("#phone"));
-										const phone = document.querySelector("#phone").value.trim();
-										const calling_code = phoneInput.getSelectedCountryData().dialCode;
-										const country_code = phoneInput.getSelectedCountryData().iso2.toUpperCase();
-										const country_name = phoneInput.getSelectedCountryData().name.toUpperCase();
-										const business_type = document.querySelector('select[name="business_type"]').value;
-										const cleanName = country_name.replace(/\s*\(.*?\)\s*/g, "").trim();
-										console.log({ country_code })
-										console.log({ cleanName })
-										console.log({ business_type })
-										// Prepare data as per API spec
-										const payload = {
-											name: name,
-											phone: phone,
-											calling_code: calling_code,
-											email: email,
-											country_code: country_code,
-											business_name: bname || "Demo Business",
-											location_name: cleanName,
-											business_type_id: "7", // fixed as per API requirement
-											source: "PosBytz"
-										};
-										console.log({ payload });
-										try {
-											const response = await fetch("http://partner-api.posbytz.com/partner-api/v1/leads/signup", {
-												method: "POST",
-												headers: {
-													"Content-Type": "application/json",
-													"x-partner-domain": "posbytz.com"
-												},
-												body: JSON.stringify(payload)
-											});
-
-											if (!response.ok) {
-												throw new Error("Network response was not ok");
-											}
-
-											const result = await response.json();
-											console.log("API Response:", result);
-											alert("Thank you! Your demo request has been submitted successfully.");
-
-											document.getElementById("leadForm").reset();
-
-										} catch (error) {
-											console.error("Error submitting form:", error);
-											alert("Something went wrong while submitting your request.");
-										}
-									});
-								</script>
 
 
 
@@ -451,31 +386,31 @@
 							</div>
 							<div class="swiper-slide d-flex align-items-center justify-content-center"
 								data-aos="fade-up" data-aos-duration="700">
-								<img src="assets/images/karak.jpeg" alt="">
+								<img src="assets/images/karak.jpg" alt="">
 							</div>
 							<div class="swiper-slide d-flex align-items-center justify-content-center"
 								data-aos="fade-up" data-aos-duration="700">
-								<img src="assets/images/marugame.jpeg" alt="">
+								<img src="assets/images/marugame.jpg" alt="">
 							</div>
 							<div class="swiper-slide d-flex align-items-center justify-content-center"
 								data-aos="fade-up" data-aos-duration="700">
-								<img src="assets/images/bad.jpeg" alt="">
+								<img src="assets/images/bad.jpg" alt="">
 							</div>
 							<div class="swiper-slide d-flex align-items-center justify-content-center"
 								data-aos="fade-up" data-aos-duration="700">
-								<img src="assets/images/pho.jpeg" alt="">
+								<img src="assets/images/pho.jpg" alt="">
 							</div>
 							<div class="swiper-slide d-flex align-items-center justify-content-center"
 								data-aos="fade-up" data-aos-duration="700">
-								<img src="assets/images/me.jpeg" alt="">
+								<img src="assets/images/me.jpg" alt="">
 							</div>
 							<div class="swiper-slide d-flex align-items-center justify-content-center"
 								data-aos="fade-up" data-aos-duration="700">
-								<img src="assets/images/my-tea.jpeg" alt="">
+								<img src="assets/images/my-tea.jpg" alt="">
 							</div>
 							<div class="swiper-slide d-flex align-items-center justify-content-center"
 								data-aos="fade-up" data-aos-duration="700">
-								<img src="assets/images/sultan.jpeg" alt="">
+								<img src="assets/images/sultan.jpg" alt="">
 							</div>
 
 						</div>
@@ -1317,7 +1252,7 @@
 											<div class="box-layer-two  tw-rounded-2xl bg-white">
 												<span
 													class="tw-mb-5 animate-left-right animation-delay-3 tw-duration-200">
-													<img src="assets/images/karak.jpeg" alt="Logo"
+													<img src="assets/images/karak.jpg" alt="Logo"
 														class="animate__flipInY"
 														style="width: 80px;border-radius: 50%;">
 												</span>
@@ -1396,7 +1331,7 @@
 											<div class="box-layer-two tw-rounded-2xl bg-white">
 												<span
 													class="tw-mb-5 animate-left-right animation-delay-3 tw-duration-200">
-													<img src="assets/images/my-tea.jpeg" alt="Logo"
+													<img src="assets/images/my-tea.jpg" alt="Logo"
 														class="animate__flipInY"
 														style="width: 90px;border-radius: 50%;">
 												</span>
@@ -1742,7 +1677,7 @@
 
 							<div class="d-flex justify-content-center tw-gap-6 tw-mt-7" data-aos="fade-up"
 								data-aos-duration="700">
-								<a href=""
+								<a href="#"
 									class="demo-btn btn btn-main hover-style-one button--stroke d-inline-flex align-items-center justify-content-center tw-gap-2 tw-px-12 tw-py-4 fw-bold rounded-2xl">
 									<span class="button__label">Book Your Free Demo</span>
 								</a>
@@ -1759,11 +1694,11 @@
 			</section>
 			<!-- ================================= Section 9 End ============================== -->
 
-<div id="popupForm" class="popup-overlay">
+<div id="popupOverlay" class="popup-overlay">
   <div class="popup-content">
     <span class="close-btn">&times;</span>
 
-    <form id="leadForm">
+    <form id="popupForm">
       <div class="mb-4">
         <input type="text" class="form-control form-control-lg rounded-pill shadow-sm px-4 py-3"
           placeholder="Full Name" required name="name">
@@ -1777,24 +1712,8 @@
           placeholder="Email Address" required name="email">
       </div>
       <div class="mb-4">
-  <div class="iti iti--allow-dropdown iti--separate-dial-code">
-    <div class="iti__flag-container">
-      <div class="iti__selected-flag" role="combobox" aria-controls="iti-0__country-listbox" aria-owns="iti-0__country-listbox" aria-expanded="false" tabindex="0" title="United Arab Emirates (‫الإمارات العربية المتحدة‬‎): +971" aria-activedescendant="iti-0__item-ae-preferred">
-        <div class="iti__flag iti__ae"></div>
-        <div class="iti__selected-dial-code">+971</div>
-        <div class="iti__arrow"></div>
+        <input id="popupPhone" name="phone" type="tel" class="form-control form-control-lg rounded-pill shadow-sm px-4 py-3" placeholder="Enter mobile number" required>
       </div>
-      <ul class="iti__country-list iti__hide" id="iti-0__country-listbox" role="listbox" aria-label="List of countries">
-        <li class="iti__country iti__preferred iti__active" tabindex="-1" id="iti-0__item-ae-preferred" role="option" data-dial-code="971" data-country-code="ae" aria-selected="true">
-          <div class="iti__flag-box"><div class="iti__flag iti__ae"></div></div>
-          <span class="iti__country-name">United Arab Emirates (‫الإمارات العربية المتحدة‬‎)</span>
-          <span class="iti__dial-code">+971</span>
-        </li>
-      </ul>
-    </div>
-    <input id="phone" name="phone" type="tel" class="form-control rounded-pill shadow-sm px-4 py-3" placeholder="Enter mobile number" required>
-  </div>
-</div>
 
       <div class="mb-4">
         <select class="form-select form-select-lg rounded-pill shadow-sm px-4 py-3" required name="business_type">
@@ -1822,18 +1741,9 @@
 </div>
 
 <!-- JS for intlTelInput -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/intlTelInput.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/css/intlTelInput.min.css"/>
+<script src="../cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/intlTelInput.min.js"></script>
+<link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/css/intlTelInput.min.html"/>
 
-<script>
-  const input = document.querySelector("#phone");
-  const iti = window.intlTelInput(input, {
-    initialCountry: "ae",         // Default country UAE +971
-    separateDialCode: true,       // Shows +971 separately
-    preferredCountries: ["ae","in","us"],
-    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/utils.js"
-  });
-</script>
 
 <style>
   .iti {
@@ -1855,7 +1765,7 @@
 </style>
 <!-- JS for Popup -->
 <script>
-  const popup = document.getElementById("popupForm");
+  const popup = document.getElementById("popupOverlay");
   const closeBtn = document.querySelector(".close-btn");
   const demoButtons = document.querySelectorAll(".demo-btn");
 
@@ -1959,7 +1869,7 @@
   display: none !important;
 } */
 
-input#phone {
+input#phone, input#popupPhone {
   border-radius: 50px !important;
   height: 55px;
   padding-left: 60px !important;
@@ -2002,14 +1912,29 @@ input#phone {
 </style>
 
 <script>
-  const input = document.querySelector("#phone");
-  const iti = window.intlTelInput(input, {
-    initialCountry: "ae",
-    separateDialCode: true,
-    preferredCountries: ["ae", "in", "us"],
-	      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/utils.js"
-
-  });
+  // Initialize phone inputs for both forms
+  const mainPhoneInput = document.querySelector("#phone");
+  const popupPhoneInput = document.querySelector("#popupPhone");
+  
+  // Initialize main form phone input
+  if (mainPhoneInput) {
+    window.intlTelInput(mainPhoneInput, {
+      initialCountry: "ae",
+      separateDialCode: true,
+      preferredCountries: ["ae", "in", "us"],
+      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/utils.js"
+    });
+  }
+  
+  // Initialize popup form phone input
+  if (popupPhoneInput) {
+    window.intlTelInput(popupPhoneInput, {
+      initialCountry: "ae",
+      separateDialCode: true,
+      preferredCountries: ["ae", "in", "us"],
+      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/utils.js"
+    });
+  }
 </script>
 			<!-- Footer -->
 			<div class="footer">
@@ -2056,7 +1981,7 @@ input#phone {
 			</div>
 
 			<!-- Font Awesome -->
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+			<link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 			<style>
 				.footer-color-box {
@@ -2162,17 +2087,6 @@ input#phone {
 	<!-- Bootstrap Bundle Js -->
 	<script src="assets/js/boostrap.bundle.min.js"></script>
 
-	<!-- GSAP js -->
-	<script src="assets/js/gsap.min.js"></script>
-	<!-- Scroll Trigger -->
-	<script src="assets/js/ScrollTrigger.min.js"></script>
-	<!-- ScrollSmoother -->
-	<script src="assets/js/ScrollSmoother.min.js"></script>
-	<!-- SplitText -->
-	<script src="assets/js/SplitText.min.js"></script>
-	<!-- custom GSAP -->
-	<script src="assets/js/custom-gsap.js"></script>
-
 	<!-- aos Js -->
 	<script src="assets/js/aos.js"></script>
 	<!-- counter up Js -->
@@ -2187,7 +2101,204 @@ input#phone {
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
 
+		<!-- Form submission handler -->
+		<script>
+			// Wait for everything to load
+			window.addEventListener('load', function() {
+				console.log('Page fully loaded, initializing forms');
+				initializeForms();
+			});
+
+			function initializeForms() {
+				// Initialize main form
+				const leadForm = document.getElementById('leadForm');
+				if (leadForm) {
+					console.log('Found leadForm, attaching handler');
+					leadForm.addEventListener('submit', handleFormSubmit);
+				} else {
+					console.error('leadForm not found');
+				}
+
+				// Initialize popup form
+				const popupForm = document.getElementById('popupForm');
+				if (popupForm) {
+					console.log('Found popupForm, attaching handler');
+					popupForm.addEventListener('submit', handleFormSubmit);
+				} else {
+					console.error('popupForm not found');
+				}
+			}
+
+			async function handleFormSubmit(e) {
+				console.log('Form submitted:', e.target.id);
+				e.preventDefault();
+				e.stopPropagation();
+
+				const form = e.target;
+				const formId = form.id;
+				const submitButton = form.querySelector('button[type="submit"]');
+
+				// Show loading state
+				showLoadingState(submitButton);
+
+				// Get field values
+				const name = form.querySelector('input[name="name"]').value.trim();
+				const bname = form.querySelector('input[name="bname"]').value.trim();
+				const email = form.querySelector('input[name="email"]').value.trim();
+				const business_type = form.querySelector('select[name="business_type"]').value;
+
+				// Get phone input data
+				let phone, calling_code, country_code, country_name;
+				const phoneInputId = formId === 'leadForm' ? '#phone' : '#popupPhone';
+
+				try {
+					const phoneInput = window.intlTelInputGlobals.getInstance(document.querySelector(phoneInputId));
+					phone = document.querySelector(phoneInputId).value.trim();
+					calling_code = phoneInput.getSelectedCountryData().dialCode;
+					country_code = phoneInput.getSelectedCountryData().iso2.toUpperCase();
+					country_name = phoneInput.getSelectedCountryData().name.toUpperCase();
+				} catch (error) {
+					console.error("Error getting phone input data:", error);
+					// Fallback for phone data
+					phone = document.querySelector(phoneInputId).value.trim();
+					calling_code = "971"; // Default UAE code
+					country_code = "AE";
+					country_name = "UNITED ARAB EMIRATES";
+				}
+
+				const cleanName = country_name.replace(/\s*\(.*?\)\s*/g, "").trim();
+
+				// Prepare data as per API spec
+				const payload = {
+					name: name,
+					phone: phone,
+					calling_code: calling_code,
+					email: email,
+					country_code: country_code,
+					business_name: bname || "Demo Business",
+					location_name: cleanName,
+					business_type_id: "7", // fixed as per API requirement
+					source: "Google_Ads"
+				};
+
+				console.log('Submitting payload:', payload);
+
+				try {
+					const response = await fetch("https://partner-api.posbytz.com/partner-api/v1/leads/signup", {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+							"x-partner-domain": "posbytz.com"
+						},
+						body: JSON.stringify(payload)
+					});
+
+					if (!response.ok) {
+						// Try to get error message from response
+						let errorMessage = "Network response was not ok";
+						try {
+							const errorData = await response.json();
+							if (errorData.message) {
+								errorMessage = errorData.message;
+							} else if (errorData.error) {
+								errorMessage = errorData.error;
+							}
+						} catch (parseError) {
+							console.log("Could not parse error response:", parseError);
+						}
+						throw new Error(errorMessage);
+					}
+
+					const result = await response.json();
+					console.log("API Response:", result);
+
+					// Show success toast
+if (typeof window.toastMessage === 'function') {
+    window.toastMessage(
+        "success",
+        "Thank You!",
+        "Your demo request has been submitted successfully.",
+        "ph-fill ph-check-circle"
+    );
+} else {
+    alert("Thank You! Your demo request has been submitted successfully.");
+}
+
+
+					// Reset the form
+					form.reset();
+
+					// Close popup if it's the popup form
+					if (formId === "popupForm") {
+						document.getElementById("popupOverlay").classList.remove("active");
+						document.body.style.overflow = "auto";
+					}
+
+				} catch (error) {
+					console.error("Error submitting form:", error);
+
+					// Get error message from response if available
+					let errorMessage = "Something went wrong while submitting your request.";
+
+					try {
+						// Try to get error message from the error object
+						if (error.message) {
+							errorMessage = error.message;
+						}
+						// If it's a fetch error, try to get response text
+						if (error.response) {
+							const errorData = await error.response.json();
+							if (errorData.message) {
+								errorMessage = errorData.message;
+							}
+						}
+					} catch (parseError) {
+						console.log("Could not parse error response:", parseError);
+					}
+
+					// Show error toast with specific message
+					if (typeof window.toastMessage === 'function') {
+						window.toastMessage(
+							"danger",
+							"Error",
+							errorMessage,
+							"ph-bold ph-x-circle"
+						);
+					} else {
+						// Fallback to alert if toastMessage is not available
+						alert(errorMessage);
+					}
+				} finally {
+					// Hide loading state
+					hideLoadingState(submitButton);
+				}
+			}
+
+			function showLoadingState(button) {
+				// Store original text
+				button.dataset.originalText = button.innerHTML;
+
+				// Show loading state
+				button.innerHTML = `
+					<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+					Submitting...
+				`;
+				button.disabled = true;
+				button.style.opacity = '0.7';
+			}
+
+			function hideLoadingState(button) {
+				// Restore original text
+				button.innerHTML = button.dataset.originalText;
+				button.disabled = false;
+				button.style.opacity = '1';
+			}
+		</script>
+
+	<!-- Toast Container -->
+	<div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
 
 </body>
+
 
 </html>
