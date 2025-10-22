@@ -2103,197 +2103,116 @@ input#phone, input#popupPhone {
 
 		<!-- Form submission handler -->
 		<script>
-			// Wait for everything to load
-			window.addEventListener('load', function() {
-				console.log('Page fully loaded, initializing forms');
-				initializeForms();
-			});
+window.addEventListener('load', function() {
+    initializeForms();
+});
 
-			function initializeForms() {
-				// Initialize main form
-				const leadForm = document.getElementById('leadForm');
-				if (leadForm) {
-					console.log('Found leadForm, attaching handler');
-					leadForm.addEventListener('submit', handleFormSubmit);
-				} else {
-					console.error('leadForm not found');
-				}
+function initializeForms() {
+    const leadForm = document.getElementById('leadForm');
+    if (leadForm) leadForm.addEventListener('submit', handleFormSubmit);
 
-				// Initialize popup form
-				const popupForm = document.getElementById('popupForm');
-				if (popupForm) {
-					console.log('Found popupForm, attaching handler');
-					popupForm.addEventListener('submit', handleFormSubmit);
-				} else {
-					console.error('popupForm not found');
-				}
-			}
-
-			async function handleFormSubmit(e) {
-				console.log('Form submitted:', e.target.id);
-				e.preventDefault();
-				e.stopPropagation();
-
-				const form = e.target;
-				const formId = form.id;
-				const submitButton = form.querySelector('button[type="submit"]');
-
-				// Show loading state
-				showLoadingState(submitButton);
-
-				// Get field values
-				const name = form.querySelector('input[name="name"]').value.trim();
-				const bname = form.querySelector('input[name="bname"]').value.trim();
-				const email = form.querySelector('input[name="email"]').value.trim();
-				const business_type = form.querySelector('select[name="business_type"]').value;
-
-				// Get phone input data
-				let phone, calling_code, country_code, country_name;
-				const phoneInputId = formId === 'leadForm' ? '#phone' : '#popupPhone';
-
-				try {
-					const phoneInput = window.intlTelInputGlobals.getInstance(document.querySelector(phoneInputId));
-					phone = document.querySelector(phoneInputId).value.trim();
-					calling_code = phoneInput.getSelectedCountryData().dialCode;
-					country_code = phoneInput.getSelectedCountryData().iso2.toUpperCase();
-					country_name = phoneInput.getSelectedCountryData().name.toUpperCase();
-				} catch (error) {
-					console.error("Error getting phone input data:", error);
-					// Fallback for phone data
-					phone = document.querySelector(phoneInputId).value.trim();
-					calling_code = "971"; // Default UAE code
-					country_code = "AE";
-					country_name = "UNITED ARAB EMIRATES";
-				}
-
-				const cleanName = country_name.replace(/\s*\(.*?\)\s*/g, "").trim();
-
-				// Prepare data as per API spec
-				const payload = {
-					name: name,
-					phone: phone,
-					calling_code: calling_code,
-					email: email,
-					country_code: country_code,
-					business_name: bname || "Demo Business",
-					location_name: cleanName,
-					business_type_id: "7", // fixed as per API requirement
-					source: "Google_Ads"
-				};
-
-				console.log('Submitting payload:', payload);
-
-				try {
-					const response = await fetch("https://partner-api.posbytz.com/partner-api/v1/leads/signup", {
-						method: "POST",
-						headers: {
-							"Content-Type": "application/json",
-							"x-partner-domain": "posbytz.com"
-						},
-						body: JSON.stringify(payload)
-					});
-
-					if (!response.ok) {
-						// Try to get error message from response
-						let errorMessage = "Network response was not ok";
-						try {
-							const errorData = await response.json();
-							if (errorData.message) {
-								errorMessage = errorData.message;
-							} else if (errorData.error) {
-								errorMessage = errorData.error;
-							}
-						} catch (parseError) {
-							console.log("Could not parse error response:", parseError);
-						}
-						throw new Error(errorMessage);
-					}
-
-					const result = await response.json();
-					console.log("API Response:", result);
-
-					// Show success toast
-if (typeof window.toastMessage === 'function') {
-    window.toastMessage(
-        "success",
-        "Thank You!",
-        "Your demo request has been submitted successfully.",
-        "ph-fill ph-check-circle"
-    );
-} else {
-    alert("Thank You! Your demo request has been submitted successfully.");
+    const popupForm = document.getElementById('popupForm');
+    if (popupForm) popupForm.addEventListener('submit', handleFormSubmit);
 }
 
+async function handleFormSubmit(e) {
+    e.preventDefault();
+    e.stopPropagation();
 
-					// Reset the form
-					form.reset();
+    const form = e.target;
+    const submitButton = form.querySelector('button[type="submit"]');
 
-					// Close popup if it's the popup form
-					if (formId === "popupForm") {
-						document.getElementById("popupOverlay").classList.remove("active");
-						document.body.style.overflow = "auto";
-					}
+    showLoadingState(submitButton);
 
-				} catch (error) {
-					console.error("Error submitting form:", error);
+    const name = form.querySelector('input[name="name"]').value.trim();
+    const bname = form.querySelector('input[name="bname"]').value.trim();
+    const email = form.querySelector('input[name="email"]').value.trim();
+    const business_type = form.querySelector('select[name="business_type"]').value;
 
-					// Get error message from response if available
-					let errorMessage = "Something went wrong while submitting your request.";
+    let phone, calling_code, country_code, country_name;
+    const phoneInputId = form.id === 'leadForm' ? '#phone' : '#popupPhone';
 
-					try {
-						// Try to get error message from the error object
-						if (error.message) {
-							errorMessage = error.message;
-						}
-						// If it's a fetch error, try to get response text
-						if (error.response) {
-							const errorData = await error.response.json();
-							if (errorData.message) {
-								errorMessage = errorData.message;
-							}
-						}
-					} catch (parseError) {
-						console.log("Could not parse error response:", parseError);
-					}
+    try {
+        const phoneInput = window.intlTelInputGlobals.getInstance(document.querySelector(phoneInputId));
+        phone = document.querySelector(phoneInputId).value.trim();
+        calling_code = phoneInput.getSelectedCountryData().dialCode;
+        country_code = phoneInput.getSelectedCountryData().iso2.toUpperCase();
+        country_name = phoneInput.getSelectedCountryData().name.toUpperCase();
+    } catch (error) {
+        phone = document.querySelector(phoneInputId).value.trim();
+        calling_code = "971";
+        country_code = "AE";
+        country_name = "UNITED ARAB EMIRATES";
+    }
 
-					// Show error toast with specific message
-					if (typeof window.toastMessage === 'function') {
-						window.toastMessage(
-							"danger",
-							"Error",
-							errorMessage,
-							"ph-bold ph-x-circle"
-						);
-					} else {
-						// Fallback to alert if toastMessage is not available
-						alert(errorMessage);
-					}
-				} finally {
-					// Hide loading state
-					hideLoadingState(submitButton);
-				}
-			}
+    const cleanName = country_name.replace(/\s*\(.*?\)\s*/g, "").trim();
 
-			function showLoadingState(button) {
-				// Store original text
-				button.dataset.originalText = button.innerHTML;
+    const payload = {
+        name: name,
+        phone: phone,
+        calling_code: calling_code,
+        email: email,
+        country_code: country_code,
+        business_name: bname || "Demo Business",
+        location_name: cleanName,
+        business_type_id: "7",
+        source: "Google Ads" // Lead source updated
+    };
 
-				// Show loading state
-				button.innerHTML = `
-					<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-					Submitting...
-				`;
-				button.disabled = true;
-				button.style.opacity = '0.7';
-			}
+    try {
+        const response = await fetch("https://partner-api.posbytz.com/partner-api/v1/leads/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "x-partner-domain": "posbytz.com"
+            },
+            body: JSON.stringify(payload)
+        });
 
-			function hideLoadingState(button) {
-				// Restore original text
-				button.innerHTML = button.dataset.originalText;
-				button.disabled = false;
-				button.style.opacity = '1';
-			}
-		</script>
+        if (!response.ok) throw new Error("Failed to submit form. Please try again.");
+
+        await response.json();
+
+        // Show thank you message
+        if (typeof window.toastMessage === 'function') {
+            window.toastMessage("success", "Thank You!", "Your demo request has been submitted successfully.", "ph-fill ph-check-circle");
+        } else {
+            alert("Thank You! Your demo request has been submitted successfully.");
+        }
+
+        form.reset();
+
+        if (form.id === "popupForm") {
+            document.getElementById("popupOverlay").classList.remove("active");
+            document.body.style.overflow = "auto";
+        }
+
+    } catch (error) {
+        console.error("Error submitting form:", error);
+        const errorMsg = error.message || "Something went wrong while submitting your request.";
+        if (typeof window.toastMessage === 'function') {
+            window.toastMessage("danger", "Error", errorMsg, "ph-bold ph-x-circle");
+        } else {
+            alert(errorMsg);
+        }
+    } finally {
+        hideLoadingState(submitButton);
+    }
+}
+
+function showLoadingState(button) {
+    button.dataset.originalText = button.innerHTML;
+    button.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Submitting...`;
+    button.disabled = true;
+    button.style.opacity = '0.7';
+}
+
+function hideLoadingState(button) {
+    button.innerHTML = button.dataset.originalText;
+    button.disabled = false;
+    button.style.opacity = '1';
+}
+</script>
 
 	<!-- Toast Container -->
 	<div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
@@ -2302,3 +2221,4 @@ if (typeof window.toastMessage === 'function') {
 
 
 </html>
+
