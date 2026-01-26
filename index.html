@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+   
+   <title>PosBytz CRM – Restaurant CRM & POS Software for Customer Retention</title>
+  <meta name="description" content="All-in-one Restaurant CRM with POS integration. Run loyalty programs, collect customer feedback, automate WhatsApp, SMS & email marketing to increase repeat visits." />
+  <meta name="keywords" content="restaurant CRM software, POS CRM, restaurant loyalty program, restaurant customer retention, WhatsApp marketing for restaurants" />
+
+    <link rel="icon" href="assets/images/fav.png" type="image/x-icon" />
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/plugins.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+	
+	 <!-- Meanmenu CSS -->
+    <link rel="stylesheet" href="assets/css/new-css-v2/plugins.css" />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/new-css-v2/style.css" />
+	 <!-- bootstarp icon -->
+    <link rel="stylesheet" href="assets/css/new-css-v4/bootstrap-icons.css" />
+    <!-- animate Css -->
+    <link rel="stylesheet" href="assets/css/new-css-v4/animate.css" />
+    <!-- Swiper bundle Css -->
+    <link rel="stylesheet" href="assets/css/new-css-v4/swiper-bundle.min.css" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/new-css-v4/bootstrap.min.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/new-css-v4/style.css" />
+    <link rel="stylesheet" href="assets/css/new-css-v4/responsive.css" />
+  </head>
+
+  <body class="home-three">
+   
+<div class="demo-modal-overlay" id="demoModal">
+  <div class="demo-modal">
+    <button class="close-modal">&times;</button>
+
+    <form class="demo-form">
+      <input type="text" placeholder="Full Name" required />
+      <input type="text" placeholder="Business Name" required />
+      <input type="email" placeholder="Email Address" required />
+
+      <!-- Dubai-only Mobile Field -->
+      <div class="mobile-field">
+        <span class="country-code">+971</span>
+        <input type="tel" placeholder="Enter mobile number" required />
+      </div>
+
+      <select required>
+        <option value="">Select Business Type</option>
+        <option>Restaurant</option>
+        <option>Café</option>
+        <option>QSR</option>
+        <option>Cloud Kitchen</option>
+      </select>
+
+      <button type="submit" class="submit-btn">
+        Get a Free Demo
+      </button>
+
+      <p class="terms">
+        By clicking register, I accept the
+        <a href="#">Terms & Conditions</a>.
+      </p>
+    </form>
+  </div>
+</div>
+	  <style>
+
+
+/* header wrapper normal state */
+.header-three.section {
+  position: relative;
+}
+
+/* content overlap avoid */
+body {
+  padding-top: 90px;
+}
+
+
+	  /* Overlay */
+.demo-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Modal box */
+.demo-modal {
+  background: #fff;
+  width: 100%;
+  max-width: 420px;
+  padding: 30px;
+  border-radius: 24px;
+  position: relative;
+}
+
+/* Close button */
+.close-modal {
+  position: absolute;
+  top: 6px;
+  right: 7px;
+  background: none;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Form */
+.demo-form input,
+.demo-form select {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 30px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 14px;
+  font-size: 15px;
+	    height: 100%;
+
+}
+
+/* Mobile field */
+.mobile-field {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 30px;
+  padding: 0 16px;
+  margin-bottom: 14px;
+}
+
+.country-code {
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.mobile-field input {
+  border: none;
+  padding: 16px 0;
+  margin: 0;
+  outline: none;
+}
+
+/* Submit button */
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: #f97316;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Terms */
+.terms {
+  font-size: 13px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.terms a {
+     color: #f97316 !important;
+  text-decoration: none;
+}
+
+	  </style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const modal = document.getElementById("demoModal");
+  const openBtns = document.querySelectorAll(".open-demo");
+  const closeBtn = document.querySelector(".close-modal");
+
+  openBtns.forEach(btn => {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      modal.style.display = "flex";
+    });
+  });
+
+  closeBtn.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+});
+</script>
+
+    <!-- ================= Header Section Start ================= -->
+    <header class="header-three section">
+      <div class="fix-menu">
+        <div class="container">
+          <div class="header-one__main">
+            <a class='header-one__logo' href='index.php'>
+              <img src="assets/images/logo.svg" alt="logo" / style="
+    width: 150px;
+">
+            </a>
+            
+            <div class="header-one__menu-btns">
+              <div class="buttons">
+                
+                <a class='open-demo saaslyn-5-btn v2' href='#'>Start Free Trial</a>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ================= Header Section End ================= -->
+
+
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <main>
+			
+         <!--================= Banner section start =================-->
+<section
+  class="banner-three section section-padding-top-bottom"
+  data-bg-src="assets/images/banner-three-bg.png"
+>
+  <div class="bottom-shape">
+    <img src="assets/images/banner-three-shape-1.png" alt="" />
+  </div>
+
+  <div class="bot-shape">
+    <img src="assets/images/banner-three-bot.png" alt="" />
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="banner-three__content section-header-3">
+
+        <span class="section-sub-title">
+          Restaurant CRM + POS + Loyalty Platform
+        </span>
+
+        <h1 class="section-title text-anime">
+          Turn Every Guest into a Loyal Customer
+        </h1>
+
+        <p>
+          Boost repeat visits and increase guest spend with restaurant CRM
+          software + POS integration. Manage loyalty programmes,<br> collect
+          customer feedback, and run automated campaigns all in one platform.
+        </p>
+
+        <div class="banner-btn-group">
+          <a class="open-demo saaslyn-4-btn v2" href="#">
+            Start Free Trial
+            <i class="fa-light fa-arrow-right-long"></i>
+          </a>
+
+          
+        </div>
+
+       
+
+      </div>
+    </div>
+
+    
+
+  </div>
+</section>
+<!--================= Banner section end =================-->
+
+
+       
+      <section class="brand-area  pt-40 pb-40">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <h2
+                class="commitment-brand-title text-uppercase text-center pb-60"
+              >
+            Trusted by 2000+ Restaurants
+              </h2>
+              <div class="swiper brand-slide-wrap side-shadow">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="brand-box">
+                     <img src="assets/images/Bait-Al-Mandi.png">
+                    </div>
+                  </div>
+					<div class="swiper-slide">
+                    <div class="brand-box">
+                     <img src="assets/images/Cuppio-Logo.jpg">
+                    </div>
+                  </div>
+					<div class="swiper-slide">
+                    <div class="brand-box">
+                     <img src="assets/images/Flowork.png">
+                    </div>
+                  </div>
+					<div class="swiper-slide">
+                    <div class="brand-box">
+                     <img src="assets/images/NUKKAD-Dhaba-Logo.png">
+                    </div>
+                  </div>
+					<div class="swiper-slide">
+                    <div class="brand-box">
+                     <img src="assets/images/Sams-Pizza.png">
+                    </div>
+                  </div>
+					<div class="swiper-slide">
+                    <div class="brand-box">
+                     <img src="assets/images/tabiboba_new_pink_logo-1.png">
+                    </div>
+                  </div>
+					<div class="swiper-slide">
+                    <div class="brand-box">
+                     <img src="assets/images/karak.jpeg">
+                    </div>
+                  </div>
+					<div class="swiper-slide">
+                    <div class="brand-box">
+                     <img src="assets/images/marugame.jpeg">
+                    </div>
+                  </div>
+					<div class="swiper-slide">
+                    <div class="brand-box">
+                     <img src="assets/images/bad.jpeg">
+                    </div>
+                  </div>
+					<div class="swiper-slide">
+                    <div class="brand-box">
+                     <img src="assets/images/pho.jpeg">
+                    </div>
+                  </div>
+					<div class="swiper-slide">
+                    <div class="brand-box">
+                     <img src="assets/images/me.jpeg">
+                    </div>
+                  </div>
+					<div class="swiper-slide">
+                    <div class="brand-box">
+                     <img src="assets/images/my-tea.jpeg">
+                    </div>
+                  </div>
+					<div class="swiper-slide">
+                    <div class="brand-box">
+                     <img src="assets/images/sultan.jpeg">
+                    </div>
+                  </div>
+                 
+				  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+			
+			 
+<section class="about-5 section pt-40 pb-40">
+
+
+  <div class="container ">
+    <div class="row g-4 align-items-center">
+
+      <!-- Image Column (same as theme) -->
+      <div class="col-lg-6">
+        <div class="">
+          <img
+            src="assets/images/What-is-CRM-software.webp"
+            alt="Restaurant customers"
+            class="w-100"
+          />
+         
+        </div>
+      </div>
+
+      <!-- Content Column -->
+      <div class="col-lg-6">
+        <div class="about-5__content">
+          <div class="section-header">
+
+           <h2>
+              Struggling to Bring Customers Back After Their First Visit?
+           </h2>
+
+
+            <p>
+              Most restaurants work hard to fill tables—but fail to convert
+              first-time diners into repeat customers. Promotions don’t convert,
+              customer feedback gets lost, and managing loyalty programmes
+              becomes complicated.
+            </p>
+
+            <p>
+              Without a proper restaurant CRM system, valuable guest data stays
+              unused. Marketing feels random, engagement drops, and customer
+              retention suffers impacting long-term revenue growth.
+            </p>
+
+           
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+			
+			<section class="features-section pt-40 pb-40">
+				<h2 class="commitment-brand-title text-uppercase text-center pb-60">
+            Key Benefits of PosBytz CRM
+              </h2>
+  <div class="container">
+
+    <!-- Tabs -->
+    <div class="feature-tabs">
+      <button class="tab active" data-tab="feedback">Feedback Management</button>
+      <button class="tab" data-tab="campaigns">Automated Campaigns</button>
+      <button class="tab" data-tab="loyalty">Loyalty Rewards</button>
+		 <button class="tab" data-tab="marketing">Multi-Channel Marketing</button>
+      <button class="tab" data-tab="pos">Customer Retention</button>
+     
+    </div>
+
+    <!-- Content -->
+    <div class="feature-box">
+<div class="feature-content active" id="feedback">
+  <div class="feature-grid">
+
+    <div class="feature-text">
+      <h2>Smart Feedback & Reviews</h2>
+      <p>
+        Instantly collect in-store or Whatsapp based feedback and automate review
+        requests for Google and social channels.
+      </p>
+      <p>
+        Customer feedback management tools streamline reputation management,
+        helping collect and act on guest reviews and boost ratings automatically.
+      </p>
+    </div>
+
+    <img src="assets/images/Feedback-management-1-1024x768-1.webp" alt="CRM Dashboard">
+
+  </div>
+</div>
+
+      <!-- Campaigns -->
+      <div class="feature-content" id="campaigns">
+		  <div class="feature-grid">
+
+    <div class="feature-text">
+        <h2>Automated Campaigns</h2>
+        <p>
+             Send targeted Whatsapp, SMS and email offers with automated campaigns and seamless POS CRM integration.
+            </p>
+  <p>
+            Restaurants use marketing automations to engage every guest and nurture loyalty.
+            </p>
+             </div>
+			  <img src="assets/images/campaigns-management-1024x768-1.webp" alt="CRM Dashboard">
+
+</div>
+      </div>
+
+      <!-- Loyalty -->
+      <div class="feature-content" id="loyalty">
+		  <div class="feature-grid">
+
+    <div class="feature-text">
+        <h2>Loyalty Rewards</h2>
+        <p>
+             Run a powerful loyalty programme and rewards program directly from our CRM.
+            </p>
+  <p>
+            Customer loyalty programs are essential for consistent customer retention and repeat sales.
+            </p>
+             </div>
+			  <img src="assets/images/Loyalty-management-1-1024x768-1.webp" alt="CRM Dashboard">
+
+</div>
+      </div>
+ <!-- Marketing -->
+      <div class="feature-content" id="marketing">
+		  <div class="feature-grid">
+
+    <div class="feature-text">
+        <h2>Multi-Channel Marketing</h2>
+        <p>
+            Reach guests on their preferred channel SMS, email and WhatsApp using smart multi channel marketing segmentation and triggers.
+            </p>
+  <p>
+             Multi channel marketing strategies empower restaurants to engage customers at the right time and place.
+            </p>
+             </div>
+			  <img src="assets/images/Pos-Integration-2-1024x768-1.webp" alt="CRM Dashboard">
+
+</div>
+      </div>
+      <!-- POS -->
+      <div class="feature-content" id="pos">
+		  <div class="feature-grid">
+
+    <div class="feature-text">
+        <h2>Customer Retention</h2>
+       <p>
+            Use analytics and automated workflows for customer retention, nurturing loyal guests and maximizing lifetime value.
+            </p>
+  <p>
+             Retention strategies powered by CRM convert one-time guests into loyal regulars.
+            </p>
+             </div>
+			  <img src="assets/images/Social-media-management-1024x768-1.webp" alt="CRM Dashboard">
+
+</div>
+      </div>
+
+     
+
+    </div>
+  </div>
+</section>
+<style>
+	
+	/* ===============================
+   COLOR VARIABLES (easy tweak)
+================================ */
+:root {
+  --feedback: #f97316;   /* orange */
+  --campaigns: #ce4b30;  /* blue */
+  --loyalty: #22c55e;    /* green */
+  --marketing: #a855f7;  /* purple */
+  --retention: #ec4899;  /* pink */
+}
+
+/* ===============================
+   ACTIVE TAB COLORS
+================================ */
+.tab[data-tab="feedback"].active {
+  border-color: var(--feedback) !important;
+  
+}
+
+.tab[data-tab="campaigns"].active {
+  border-color: var(--campaigns) !important;
+
+}
+
+.tab[data-tab="loyalty"].active {
+  border-color: var(--loyalty) !important;
+ 
+}
+
+.tab[data-tab="marketing"].active {
+  border-color: var(--marketing) !important;
+
+}
+
+.tab[data-tab="pos"].active {
+  border-color: var(--retention) !important;
+ 
+}
+
+/* ===============================
+   FEATURE BOX COLOR CHANGE
+   based on active tab
+================================ */
+
+/* Feedback */
+.features-section:has(.tab.active[data-tab="feedback"]) .feature-box {
+  border-color: var(--feedback) !important;
+}
+
+
+/* Campaigns */
+.features-section:has(.tab.active[data-tab="campaigns"]) .feature-box {
+  border-color: var(--campaigns) !important;
+}
+
+
+/* Loyalty */
+.features-section:has(.tab.active[data-tab="loyalty"]) .feature-box {
+  border-color: var(--loyalty) !important;
+}
+
+
+/* Marketing */
+.features-section:has(.tab.active[data-tab="marketing"]) .feature-box {
+  border-color: var(--marketing) !important; 
+}
+
+
+/* Retention */
+.features-section:has(.tab.active[data-tab="pos"]) .feature-box {
+  border-color: var(--retention) !important;
+}
+
+
+	.feature-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+
+  /* 🔥 THIS IS THE KEY */
+  align-items: center;
+}
+
+.feature-text {
+  max-width: 520px;
+}
+
+.feature-text h2 {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.feature-text p {
+
+  margin-bottom: 14px;
+  line-height: 1.7;
+}
+
+.feature-grid img {
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+
+			.features-section {
+  background: #fff;
+}
+
+.feature-tabs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.feature-tabs .tab {
+     padding: 20px 20px;
+
+  border-radius: 30px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.feature-tabs .tab.active {
+  border-color: #f97316;
+
+      background: #ffffff;
+}
+
+.feature-box {
+  border: 2px solid #f97316;
+  border-radius: 16px;
+  padding: 40px;
+}
+
+.feature-content {
+  display: none;
+}
+
+.feature-content.active {
+  display: block;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+}
+
+.feature-text h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.feature-text p {
+     font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.feature-text ul {
+  padding-left: 20px;
+}
+
+.feature-text li {
+  margin-bottom: 10px;
+}
+
+.feature-mock {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.stat-card {
+  background: #fff7ed;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.stat-card span {
+  display: block;
+  font-size: 13px;
+  color: #475569;
+  margin-top: 5px;
+}
+
+@media(max-width: 768px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+			
+	<script>
+  const tabs = document.querySelectorAll(".tab");
+  const contents = document.querySelectorAll(".feature-content");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      contents.forEach(c => c.classList.remove("active"));
+
+      tab.classList.add("active");
+      document.getElementById(tab.dataset.tab).classList.add("active");
+    });
+  });
+</script>
+		
+			
+			
+    <section class="service-area pt-40 pb-40 position-relative z-index-one overflow-hidden">
+  <div class="container">
+    <!-- Section Title -->
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <div class="section-title text-center">
+          <h2 class="title text_color_white text-anim">
+            Why Restaurants Choose PosBytz CRM
+          </h2>
+          <p class="desc ">
+            An all-in-one restaurant CRM & ERP platform built to increase repeat
+            customers, improve guest experience, and simplify operations.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <div class="row pt-60 gy-4">
+
+      <!-- Card 1 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-box-wrap">
+          <div class="service-box position-relative overflow-hidden">
+			   <div class="service-icon">
+    <i class="ri-dashboard-3-line"></i>
+  </div>
+            <h3>Unified Customer Dashboard</h3>
+            <p>
+              Manage customer profiles, loyalty points, feedback, campaigns,
+              and guest insights from a single dashboard designed specifically
+              for restaurant owners.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-box-wrap">
+          <div class="service-box position-relative overflow-hidden">
+			     <div class="service-icon">
+  <i class="ri-store-2-line"></i>
+  </div>
+            <h3>CRM Built for Restaurants</h3>
+            <p>
+              Purpose-built restaurant CRM software with POS integration to
+              automate marketing, track guest behaviour, and boost repeat
+              visits without manual effort.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-box-wrap">
+          <div class="service-box position-relative overflow-hidden">
+			     <div class="service-icon">
+<i class="ri-award-line"></i>
+
+  </div>
+            <h3>Smart Loyalty & Rewards</h3>
+            <p>
+              Simple and flexible rewards programs that encourage repeat
+              orders, increase average order value, and turn first-time guests
+              into loyal customers.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-box-wrap">
+          <div class="service-box position-relative overflow-hidden">
+			     <div class="service-icon">
+   <i class="ri-megaphone-line"></i>
+  </div>
+            <h3>Automated Campaigns</h3>
+            <p>
+              Run targeted WhatsApp, SMS, and email campaigns automatically
+              based on customer visits, spend patterns, and preferences.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-box-wrap">
+          <div class="service-box position-relative overflow-hidden">
+			     <div class="service-icon">
+   <i class="ri-star-smile-line"></i>
+  </div>
+            <h3>Google Review Automation</h3>
+            <p>
+              Collect real-time feedback and automatically push happy customers
+              to leave Google reviews boosting online reputation.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-box-wrap">
+          <div class="service-box position-relative overflow-hidden">
+			     <div class="service-icon">
+ <i class="ri-stack-line"></i>
+
+  </div>
+            <h3>Complete Restaurant ERP</h3>
+            <p>
+              Manage POS, inventory, online ordering, accounting, reports, and
+              CRM from one powerful platform—no multiple tools, no chaos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Background Shape -->
+  <img
+    class="position-absolute z-index-minus-one translate-middle top-50 start-50"
+    src="assets/images/service-bg-sp.png"
+    alt="service background"
+  />
+</section>
+
+			
+		
+			
+			
+			
+			
+          <!--================= Testimonial section start =================-->
+          <section
+            class="testimonial-3 section section-padding-top-bottom overflow-hidden"
+          >
+            <div class="container">
+              <div class="row g-2 justify-content-between align-items-end">
+                <div class="col-md-6 col-lg-6 col-xl-6">
+                  <div class="section-header-3">
+                    <span class="text-uppercase text_color_white gradient-sub section-sub-title">Testimonials</span>
+                    <h2 class="section-title text-anime">
+                      What our awesome Customers say
+                    </h2>
+                  </div>
+                </div>
+                
+              </div>
+              <div class="row row-padding-top saaslyn_screenfix_right">
+                <div class="col-12">
+                  <div class="swiper testimonial-3__slider">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <div class="testimonial-3__item">
+                          <div class="triangle">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="52"
+                              height="150"
+                              viewBox="0 0 52 150"
+                              fill="none"
+                            >
+                              <path
+                                d="M35.6612 36.6382C56.4441 57.9905 56.4441 92.0095 35.6612 113.362L1.07269e-06 150L7.62939e-06 -3.19093e-06L35.6612 36.6382Z"
+                                fill="currentColor"
+                                fill-opacity="0.08"
+                              />
+                            </svg>
+                          </div>
+                          <div class="item-content">
+                            <div class="item-header">
+                              <div class="rating-stars">
+                                <ul>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div class="icon">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="48"
+                                  height="38"
+                                  viewBox="0 0 48 38"
+                                  fill="none"
+                                >
+                                  <path
+                                    opacity="0.16"
+                                    d="M2 0H18C19.1046 0 20 0.89543 20 2V17.1716C20 17.702 19.7893 18.2107 19.4142 18.5858L1.70711 36.2929C1.07714 36.9229 0 36.4767 0 35.5858V2C0 0.895431 0.895431 0 2 0Z"
+                                    fill="currentColor"
+                                  />
+                                  <path
+                                    opacity="0.16"
+                                    d="M30 0H46C47.1046 0 48 0.89543 48 2V17.1716C48 17.702 47.7893 18.2107 47.4142 18.5858L29.7071 36.2929C29.0771 36.9229 28 36.4767 28 35.5858V2C28 0.895431 28.8954 0 30 0Z"
+                                    fill="currentColor"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <div class="item-author">
+								<div class="author-avatar">
+                                <img
+                                  src="assets/images/nashama_coffee-100x100.webp"
+                                  alt="author"
+                                />
+                              </div>
+                    <h6 class="author-title">Al Nashama Coffee</h6>
+                    <span class="author-designation">Qatar</span>
+                  </div>
+                          <p>
+                    We sell Italian aroma coffee at our outlets. PosBytz has been
+                    a very simple to use POS system and we have been using it for
+                    our business for a few years now.
+                  </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="testimonial-3__item">
+                          <div class="triangle">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="52"
+                              height="150"
+                              viewBox="0 0 52 150"
+                              fill="none"
+                            >
+                              <path
+                                d="M35.6612 36.6382C56.4441 57.9905 56.4441 92.0095 35.6612 113.362L1.07269e-06 150L7.62939e-06 -3.19093e-06L35.6612 36.6382Z"
+                                fill="currentColor"
+                                fill-opacity="0.08"
+                              />
+                            </svg>
+                          </div>
+                          <div class="item-content">
+                            <div class="item-header">
+                              <div class="rating-stars">
+                                <ul>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div class="icon">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="48"
+                                  height="38"
+                                  viewBox="0 0 48 38"
+                                  fill="none"
+                                >
+                                  <path
+                                    opacity="0.16"
+                                    d="M2 0H18C19.1046 0 20 0.89543 20 2V17.1716C20 17.702 19.7893 18.2107 19.4142 18.5858L1.70711 36.2929C1.07714 36.9229 0 36.4767 0 35.5858V2C0 0.895431 0.895431 0 2 0Z"
+                                    fill="currentColor"
+                                  />
+                                  <path
+                                    opacity="0.16"
+                                    d="M30 0H46C47.1046 0 48 0.89543 48 2V17.1716C48 17.702 47.7893 18.2107 47.4142 18.5858L29.7071 36.2929C29.0771 36.9229 28 36.4767 28 35.5858V2C28 0.895431 28.8954 0 30 0Z"
+                                    fill="currentColor"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <div class="item-author">
+                              <div class="author-avatar">
+                                <img
+                                  src="assets/images/Sams-Pizza.png"
+                                  alt="author"
+                                />
+                              </div>
+                              <h6 class="author-title">Sam’s Pasta Pizza</h6>
+                              <span class="author-designation"
+                                >Qatar</span
+                              >
+                            </div>
+                            <p>
+                              We are a traditional Italian cuisine–based brand. We have been using PosBytz for our restaurant management operations and so far there have been no issues with respect to the software.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="testimonial-3__item">
+                          <div class="triangle">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="52"
+                              height="150"
+                              viewBox="0 0 52 150"
+                              fill="none"
+                            >
+                              <path
+                                d="M35.6612 36.6382C56.4441 57.9905 56.4441 92.0095 35.6612 113.362L1.07269e-06 150L7.62939e-06 -3.19093e-06L35.6612 36.6382Z"
+                                fill="currentColor"
+                                fill-opacity="0.08"
+                              />
+                            </svg>
+                          </div>
+                          <div class="item-content">
+                            <div class="item-header">
+                              <div class="rating-stars">
+                                <ul>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div class="icon">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="48"
+                                  height="38"
+                                  viewBox="0 0 48 38"
+                                  fill="none"
+                                >
+                                  <path
+                                    opacity="0.16"
+                                    d="M2 0H18C19.1046 0 20 0.89543 20 2V17.1716C20 17.702 19.7893 18.2107 19.4142 18.5858L1.70711 36.2929C1.07714 36.9229 0 36.4767 0 35.5858V2C0 0.895431 0.895431 0 2 0Z"
+                                    fill="currentColor"
+                                  />
+                                  <path
+                                    opacity="0.16"
+                                    d="M30 0H46C47.1046 0 48 0.89543 48 2V17.1716C48 17.702 47.7893 18.2107 47.4142 18.5858L29.7071 36.2929C29.0771 36.9229 28 36.4767 28 35.5858V2C28 0.895431 28.8954 0 30 0Z"
+                                    fill="currentColor"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <div class="item-author">
+                              <div class="author-avatar">
+                                <img
+                                  src="assets/images/Teklos-100x100-1.webp"
+                                  alt="author"
+                                />
+                              </div>
+                              <h6 class="author-title">Teklos</h6>
+                              <span class="author-designation"
+                                >UAE</span
+                              >
+                            </div>
+                            <p>
+                             We are a UAE-based F&B brand with both restaurant and online presence. With PosBytz, we are able to manage both outlets and online ordering through Talabat and Careem in one POS.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="testimonial-3__item">
+                          <div class="triangle">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="52"
+                              height="150"
+                              viewBox="0 0 52 150"
+                              fill="none"
+                            >
+                              <path
+                                d="M35.6612 36.6382C56.4441 57.9905 56.4441 92.0095 35.6612 113.362L1.07269e-06 150L7.62939e-06 -3.19093e-06L35.6612 36.6382Z"
+                                fill="currentColor"
+                                fill-opacity="0.08"
+                              />
+                            </svg>
+                          </div>
+                          <div class="item-content">
+                            <div class="item-header">
+                              <div class="rating-stars">
+                                <ul>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div class="icon">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="48"
+                                  height="38"
+                                  viewBox="0 0 48 38"
+                                  fill="none"
+                                >
+                                  <path
+                                    opacity="0.16"
+                                    d="M2 0H18C19.1046 0 20 0.89543 20 2V17.1716C20 17.702 19.7893 18.2107 19.4142 18.5858L1.70711 36.2929C1.07714 36.9229 0 36.4767 0 35.5858V2C0 0.895431 0.895431 0 2 0Z"
+                                    fill="currentColor"
+                                  />
+                                  <path
+                                    opacity="0.16"
+                                    d="M30 0H46C47.1046 0 48 0.89543 48 2V17.1716C48 17.702 47.7893 18.2107 47.4142 18.5858L29.7071 36.2929C29.0771 36.9229 28 36.4767 28 35.5858V2C28 0.895431 28.8954 0 30 0Z"
+                                    fill="currentColor"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <div class="item-author">
+                              <div class="author-avatar">
+                                <img
+                                  src="assets/images/tabiboba_new_pink_logo-1.png"
+                                  alt="author"
+                                />
+                              </div>
+                              <h6 class="author-title">Tabiboba</h6>
+                              <span class="author-designation"
+                                >Qatar</span
+                              >
+                            </div>
+                            <p>
+                              We have been using PosBytz for our entire operations across 12 outlets — from procurement and boba recipe preparation to stock transfers, accounting, POS billing, and online ordering.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="testimonial-3__item">
+                          <div class="triangle">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="52"
+                              height="150"
+                              viewBox="0 0 52 150"
+                              fill="none"
+                            >
+                              <path
+                                d="M35.6612 36.6382C56.4441 57.9905 56.4441 92.0095 35.6612 113.362L1.07269e-06 150L7.62939e-06 -3.19093e-06L35.6612 36.6382Z"
+                                fill="currentColor"
+                                fill-opacity="0.08"
+                              />
+                            </svg>
+                          </div>
+                          <div class="item-content">
+                            <div class="item-header">
+                              <div class="rating-stars">
+                                <ul>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div class="icon">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="48"
+                                  height="38"
+                                  viewBox="0 0 48 38"
+                                  fill="none"
+                                >
+                                  <path
+                                    opacity="0.16"
+                                    d="M2 0H18C19.1046 0 20 0.89543 20 2V17.1716C20 17.702 19.7893 18.2107 19.4142 18.5858L1.70711 36.2929C1.07714 36.9229 0 36.4767 0 35.5858V2C0 0.895431 0.895431 0 2 0Z"
+                                    fill="currentColor"
+                                  />
+                                  <path
+                                    opacity="0.16"
+                                    d="M30 0H46C47.1046 0 48 0.89543 48 2V17.1716C48 17.702 47.7893 18.2107 47.4142 18.5858L29.7071 36.2929C29.0771 36.9229 28 36.4767 28 35.5858V2C28 0.895431 28.8954 0 30 0Z"
+                                    fill="currentColor"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <div class="item-author">
+                              <div class="author-avatar">
+                                <img
+                                  src="assets/images/Jazz-cafe-100x100.webp"
+                                  alt="author"
+                                />
+                              </div>
+                              <h6 class="author-title">JazzCafe</h6>
+                              <span class="author-designation"
+                                >KSA</span
+                              >
+                            </div>
+                            <p>
+                              PosBytz Café POS software is very easy to use, and the inventory management system helps us accurately manage inventory and correct leakages. We are running our business profitably with PosBytz.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="testimonial-3__item">
+                          <div class="triangle">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="52"
+                              height="150"
+                              viewBox="0 0 52 150"
+                              fill="none"
+                            >
+                              <path
+                                d="M35.6612 36.6382C56.4441 57.9905 56.4441 92.0095 35.6612 113.362L1.07269e-06 150L7.62939e-06 -3.19093e-06L35.6612 36.6382Z"
+                                fill="currentColor"
+                                fill-opacity="0.08"
+                              />
+                            </svg>
+                          </div>
+                          <div class="item-content">
+                            <div class="item-header">
+                              <div class="rating-stars">
+                                <ul>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div class="icon">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="48"
+                                  height="38"
+                                  viewBox="0 0 48 38"
+                                  fill="none"
+                                >
+                                  <path
+                                    opacity="0.16"
+                                    d="M2 0H18C19.1046 0 20 0.89543 20 2V17.1716C20 17.702 19.7893 18.2107 19.4142 18.5858L1.70711 36.2929C1.07714 36.9229 0 36.4767 0 35.5858V2C0 0.895431 0.895431 0 2 0Z"
+                                    fill="currentColor"
+                                  />
+                                  <path
+                                    opacity="0.16"
+                                    d="M30 0H46C47.1046 0 48 0.89543 48 2V17.1716C48 17.702 47.7893 18.2107 47.4142 18.5858L29.7071 36.2929C29.0771 36.9229 28 36.4767 28 35.5858V2C28 0.895431 28.8954 0 30 0Z"
+                                    fill="currentColor"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <div class="item-author">
+                              <div class="author-avatar">
+                                <img
+                                  src="assets/images/maaza-100x100.webp"
+                                  alt="author"
+                                />
+                              </div>
+                              <h6 class="author-title">Mazaarabia</h6>
+                              <span class="author-designation"
+                                >KSA</span
+                              >
+                            </div>
+                            <p>
+                              We operate a broasted chicken brand across KSA with around 25 outlets and growing. PosBytz has automated our entire operations from purchases and inventory to sales and online ordering.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!--================= Testimonial section end =================-->
+
+        <section
+        class="subscribe-area  position-relative z-index-one"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div
+                class="subscribe-wrap subscribe-wrap-two overflow-hidden position-relative z-index-one"
+              >
+                <div class="section-title text-center">
+                  <h2 class="title text_color_white text-anim">
+                    Ready to turn one-time guests into loyal regulars?
+                  </h2>
+                  <p class="desc text_color_light_white">
+                   No credit card required. Cancel anytime.
+                  </p>
+                </div>
+                <div
+                  class="two-btn-wrap d-flex flex-wrap justify-content-center"
+                >
+                  <a class='open-demo common-btn bg-blue-style' href='#'>
+                    Start 14-Day Free Trial
+                  </a>
+					 <a class='common-btn bg-blue-style' href='#'>
+               Request a Demo
+                  </a>
+                </div>
+				 
+                <img
+                  class="position-absolute z-index-minus-one start-0 top-0 h-100 w-100"
+                  src="assets/images/noise.png"
+                  alt=""
+                />
+                <svg
+                  class="arrow-left-img position-absolute z-index-minus-one start-0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="487"
+                  height="282"
+                  viewBox="0 0 487 282"
+                  fill="none"
+                >
+                  <path
+                    d="M-75.0925 0.559411C-52.8054 39.8517 -31.3707 61.2603 11.3733 76.1087C49.9737 89.5177 98.4011 87.9239 138.902 88.8366C189.046 89.9666 279.836 111.385 284.626 173.218C288.346 221.23 239.694 257.51 198.414 225.938C182.499 213.767 182.76 186.158 197.302 172.721C213.01 158.207 242.078 159.764 261.448 162.682C313.47 170.52 327.438 227.731 367.395 252.704C404.725 276.036 441.783 269.902 481.958 257.65C485.4 256.601 478.533 269.963 477.15 273.438C472.081 286.177 476.878 281.537 480.711 271.905C483.176 265.71 491.681 253.838 481.924 254.03C474.884 254.17 461.982 249.7 455.217 247.008"
+                    stroke="white"
+                    stroke-opacity="0.15"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <svg
+                  class="arrow-right-img position-absolute z-index-minus-one end-0"
+                  width="517"
+                  height="195"
+                  viewBox="0 0 517 195"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.5 157C61.5 125.5 318.5 141.5 360.051 30.6766C362.168 20.542 365.235 4.6987 351.721 1.61396C331.419 -3.02024 306.932 17.8011 293.133 29.3808C268.503 50.0502 247.589 75.6353 231.63 103.564C221.681 120.975 206.183 149.763 211.545 170.853C264.5 265.5 547.766 34.1925 558.5 24.5015"
+                    stroke="white"
+                    stroke-opacity="0.15"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M49.4261 161.822L1.5 159.502L34.0002 129.502"
+                    stroke="white"
+                    stroke-opacity="0.15"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+			
+<section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info animate-on-scroll visible">
+                     <div class="section-header-3">
+                    <span class="text-uppercase text_color_white gradient-sub section-sub-title">Get In Touch</span>
+                    <h2 class="section-title text-anime">
+                    Let's Build Something Great Together
+
+                    </h2>
+                  </div>
+                   
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4>Address</h4>
+                                <p>Deira, Dubai, United Arab Emirates</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4>Phone</h4>
+                                <p>+971 52 116 7780</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4>Email</h4>
+                                <p>support@posbytz.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4>Business Hours</h4>
+                                <p>Monday - Friday: 9AM – 6PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper animate-on-scroll visible">
+                   <form class="contact-form" method="post" action="send-mail.php">
+    <h3>Request a Quote</h3>
+
+    
+        <div class="form-group">
+            <label for="fullname">Full Name *</label>
+            <input type="text" id="firstName" name="first_name" required="">
+        </div>
+       
+     <div class="form-group">
+            <label for="Business">Business Name</label>
+            <input type="text" id="Business" name="business">
+        </div>
+
+    <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" required="">
+    </div>
+
+ 
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+        </div>
+       
+    
+    <div class="form-group">
+        <label for="Type">Business Type</label>
+        <select id="Type" name="Type" required="">
+            <option value="Restaurant">Restaurant</option>
+            <option value="Cafe">Cafe</option>
+            <option value="QSR">QSR</option>
+            <option value="Cloud Kitchen">Cloud Kitchen</option>
+          
+        </select>
+    </div>
+
+   
+
+    <button type="submit" class="btn btn-primary">Get a Free Demo</button>
+					   <p class="terms">
+        By clicking register, I accept the
+        <a href="#">Terms & Conditions</a>.
+      </p>
+</form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+<style>
+
+
+
+.section-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 3px;
+    background: var(--bg-gradient);
+    border-radius: 2px;
+}
+/* SECTION */
+.contact {
+  padding: 80px 0;
+}
+
+.container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* GRID */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+/* LEFT CONTENT */
+.section-label {
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2563eb;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.contact-info h2 {
+  font-size: 42px;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.contact-info p {
+  color: #64748b;
+  font-size: 16px;
+  max-width: 520px;
+  margin-bottom: 40px;
+}
+
+/* CONTACT ITEMS */
+.contact-details {
+	margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contact-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #ef9037;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.contact-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.contact-item-content h4 {
+  font-size: 16px;
+       color: #64748b;
+    font-weight: 500;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.contact-item-content p {
+  font-size: 18px;
+	       font-weight: 500;
+    color: #000000;
+
+}
+
+/* RIGHT FORM */
+.contact-form-wrapper {
+  background: #f1f5f9;
+  padding: 40px;
+  border-radius: 18px;
+}
+
+.contact-form h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+/* FORM */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+  background: #fff;
+  outline: none;
+  transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.form-group textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+/* BUTTON */
+.btn-primary {
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background: #ef9037;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info h2 {
+    font-size: 34px;
+  }
+
+  .contact-form-wrapper {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+			</style>
+
+			<footer class="site-footer">
+  <div class="footer-container">
+    <p class="footer-left">
+      © 2026 PosBytz. All rights reserved.
+    </p>
+
+    <div class="footer-right">
+      <a href="https://posbytz.com/privacy-policy/" target="_blank">Terms & Conditions</a>
+      <a href="https://posbytz.com/terms-and-conditions/" target="_blank">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+<style>.site-footer {
+  width: 100%;
+  background: #ef9037;
+  padding: 18px 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-left {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.footer-right {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-right a {
+  font-size: 14px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer-right a:hover {
+  opacity: 0.8;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+</style>
+		  </main>
+
+ 
+	
+		</div>
+	  </div>
+	   <!-- Swiper slider Plugin -->
+    <script src="assets/js/vendor/swiper-bundle.min.js"></script>
+
+    <!-- Swiper slider Plugin -->
+    <script src="assets/js/vendor/jquery.magnific-popup.min.js"></script>
+    <!-- Jquery JS -->
+    <script src="assets/js/new-js-v2/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="assets/js/new-js-v2/bootstrap.bundle.min.js"></script>
+    <!-- MixItUp JS -->
+    <script src="assets/js/new-js-v2/jquery.mixitup.min.js"></script>
+    <!-- Swiper Carousel JS -->
+    <script src="assets/js/new-js-v2/swiper-bundle.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="assets/js/new-js-v2/jquery.magnific-popup.min.js"></script>
+    <!-- Odometer JS -->
+    <script src="assets/js/new-js-v2/odometer.min.js"></script>
+    <script src="assets/js/new-js-v2/viewport.jquery.js"></script>
+    <!-- Mean menu JS -->
+    <script src="assets/js/new-js-v2/jquery.meanmenu.min.js"></script>
+    <!-- YouTubePopUp JS -->
+    <script src="assets/js/new-js-v2/YouTubePopUp.js"></script>
+    <!-- Select2 JS -->
+    <script src="assets/js/new-js-v2/select2.js"></script>
+    <!-- gsap JS -->
+    <script src="assets/js/new-js-v2/gsap.min.js"></script>
+    <!-- Main JS -->
+    <script src="assets/js/new-js-v2/main.js"></script>
+	    <!-- JS Files -->
+    <!-- jQuery -->
+    <script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
+
+    <!-- Counter JS -->
+    <script src="assets/js/vendor/counter.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery meanMenu -->
+    <script src="assets/js/vendor/jquery.meanmenu.min.js"></script>
+
+    <!-- Swiper slider Plugin -->
+    <script src="assets/js/vendor/swiper-bundle.min.js"></script>
+
+    <!-- Swiper slider Plugin -->
+    <script src="assets/js/vendor/jquery.magnific-popup.min.js"></script>
+
+    <!-- ChartJS Plugin -->
+    <script src="assets/js/vendor/chart.js"></script>
+
+    <!-- GSAP -->
+    <script src="assets/js/vendor/gsap.min.js"></script>
+    <script src="assets/js/vendor/ScrollSmoother.min.js"></script>
+    <script src="assets/js/vendor/ScrollTrigger.min.js"></script>
+    <script src="assets/js/vendor/ScrollToPlugin.min.js"></script>
+    <script src="assets/js/vendor/SplitText.min.js"></script>
+    <script src="assets/js/vendor/split-types.min.js"></script>
+    <script src="assets/js/vendor/MotionPathPlugin.min.js"></script>
+	  
+
+    <!-- BackToTop JavaScript File -->
+    <script src="assets/js/vendor/backToTop.js"></script>
+
+    <!-- Main JavaScript File -->
+    <script src="assets/js/main.js"></script>
+  </body>
+
