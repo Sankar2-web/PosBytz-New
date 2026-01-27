@@ -39,20 +39,33 @@
    
 
 	  <style>
-html {
-  scroll-behavior: smooth;
+
+
+/* header wrapper normal state */
+.header-three.section {
+  position: relative;
 }
+
+/* content overlap avoid */
+body {
+  padding-top: 90px;
+}
+
+
 .service-box-wrap .service-box {
    
-    background-color: #07112d !important;
+    background-color: #ef9037 !important;
 }
 		  .testimonial-3__item {
-    background-color: #07112d !important;
+    background-color: #ef9037 !important;
 
 		  }
-		  .testimonial-3__item {
-			  background-color: #07112d !important;
-		  }
+		
+.service-icon i {
+    font-size: 45px;
+    color: #ffffff !important;
+}
+
 /* Terms */
 .terms {
   font-size: 13px;
@@ -64,8 +77,12 @@ html {
      color: #f97316 !important;
   text-decoration: none;
 }
-
-	  </style>
+html {
+  scroll-behavior: smooth;
+}
+	
+	  
+</style>
 
 
     <!-- ================= Header Section Start ================= -->
@@ -82,7 +99,7 @@ html {
             <div class="header-one__menu-btns">
               <div class="buttons">
                 
-                <a class=' saaslyn-5-btn v2' href="#quoteForm">Start Free Trial</a>
+                <a class=' saaslyn-5-btn v2 js-scroll-contact' href="">Start Free Trial</a>
               </div>
               
             </div>
@@ -129,7 +146,7 @@ html {
         </p>
 
         <div class="banner-btn-group">
-          <a class=" saaslyn-4-btn v2" href="#quoteForm">
+          <a class="open-demo saaslyn-4-btn v2 js-scroll-contact" href="">
             Start Free Trial
             <i class="fa-light fa-arrow-right-long"></i>
           </a>
@@ -1267,10 +1284,10 @@ html {
                 <div
                   class="two-btn-wrap d-flex flex-wrap justify-content-center"
                 >
-                  <a class='open-demo common-btn bg-blue-style' href="#quoteForm">
+                  <a class='common-btn bg-blue-style js-scroll-contact' href="">
                     Start 14-Day Free Trial
                   </a>
-					 <a class='common-btn bg-blue-style' href="#quoteForm">
+					 <a class='common-btn bg-blue-style js-scroll-contact' href="">
                Request a Demo
                   </a>
                 </div>
@@ -1323,7 +1340,7 @@ html {
       </section>
 
 			
-<section class="contact" id="contact quoteForm">
+<section class="contact" id="contact">
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info animate-on-scroll visible">
@@ -1375,7 +1392,7 @@ html {
                     </div>
                 </div>
                 <div class="contact-form-wrapper animate-on-scroll visible">
-                   <form class="contact-form"  method="post">
+                   <form class="contact-form" method="post" action="send-mail.php">
     <h3>Request a Quote</h3>
 
     
@@ -1689,8 +1706,29 @@ html {
 </style>
 		  </main>
 
- 
+ <style>
+	 .contact-section {
+  height: auto; /* 100vh remove */
+}
+
+#quoteForm {
+  position: relative;
+  top: -120px;   /* header height */
+}</style>
 	
+	<script>
+document.querySelectorAll('a[href="#quoteForm"]').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const yOffset = -120; // header height
+    const el = document.getElementById('quoteForm');
+    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  });
+});
+</script>
+
 		</div>
 	  </div>
 	   <!-- Swiper slider Plugin -->
@@ -1758,10 +1796,26 @@ html {
 
     <!-- Main JavaScript File -->
     <script src="assets/js/main.js"></script>
+	  <script>
+document.querySelectorAll('.js-scroll-contact').forEach(btn => {
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const target = document.getElementById('contact');
+
+    const headerOffset = 100; // sticky header height (adjust if needed)
+    const elementPosition = target.getBoundingClientRect().top;
+    const offsetPosition =
+      elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth"
+    });
+  });
+});
+</script>
+
   </body>
+
 </html>
-
-
-
-
-
