@@ -33,16 +33,17 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/new-css-v4/style.css" />
     <link rel="stylesheet" href="assets/css/new-css-v4/responsive.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   </head>
 
   <body class="home-three">
    
 
 	  <style>
-.service-box-wrap .service-box {
-   
-    background-color: #f1f5f9 !important;
-		  }
+
 		  .service-box-wrap .service-box h3 {
     color: #000000 !important;
 		  }
@@ -52,22 +53,7 @@
 		  .subscribe-wrap {
     background: #f78e26 !important;
 		  }
-.testimonial-3__item {
-	border: 1px solid rgb(247 142 38) !important;
-    background: #f1f5f9 !important;
-}
-.testimonial-3__item .item-content .item-author .author-title {
-  color: #000000 !important;
- 
-}
-.testimonial-3__item .item-content p {
-  color: #000000 !important;
- 
-}
-.testimonial-3__item .item-content .item-author .author-designation {
-  color: #000000 !important;
- 
-}
+
 
 /* header wrapper normal state */
 .header-three.section {
@@ -81,7 +67,7 @@ body {
 		  .common-btn.bg-blue-style {
     color: #000000 !important;
     background-color: #ffffff;
-
+		  }
 .subscribe-wrap {
     padding: 50px 20px;
     border-radius: 32px;
@@ -95,12 +81,9 @@ body {
     color: #000000 !important;
 			  }
 .service-box-wrap .service-box {
-     background-color: #f1f5f9 !important;
+     background-color: #ffffff !important;
 }
-		  .testimonial-3__item {
-    background-color: #ef9037 !important;
-
-		  }
+		
 		
 .service-icon i {
     font-size: 45px;
@@ -121,7 +104,26 @@ body {
 html {
   scroll-behavior: smooth;
 }
-	
+	/* On Hover */
+.service-box:hover .service-icon i {
+  animation: iconBounce 0.6s ease;
+  color: #fb8500;
+}
+
+@keyframes iconBounce {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  30% {
+    transform: translateY(-10px) rotate(8deg);
+  }
+  60% {
+    transform: translateY(5px) rotate(-6deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
 	  
 </style>
 
@@ -149,7 +151,45 @@ html {
       </div>
     </header>
     <!-- ================= Header Section End ================= -->
+<style>
+/* Lazy Load Animation */
+.lazy-section {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 0.8s ease-out;
+}
 
+/* When visible */
+.lazy-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const sections = document.querySelectorAll("section");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+    }
+  );
+
+  sections.forEach(section => {
+    section.classList.add("lazy-section");
+    observer.observe(section);
+  });
+
+});
+</script>
 
     <div id="smooth-wrapper">
       <div id="smooth-content">
@@ -157,7 +197,7 @@ html {
 			
          <!--================= Banner section start =================-->
 <section
-  class="banner-three section section-padding-top-bottom"
+  class="banner-three section section-padding-top-bottom lazy-section"
   data-bg-src="assets/images/banner-three-bg.png"
 >
   <div class="bottom-shape">
@@ -177,19 +217,76 @@ html {
         </span>
 
         <h1 class="section-title text-anime">
-          Turn Every Guest into a Loyal Customer
+        Turn First Time Guests Into Lifelong Regulars
         </h1>
 
-        <p>
-          Boost repeat visits and increase guest spend with restaurant CRM
-          software + POS integration. Manage loyalty programmes,<br> collect
-          customer feedback, and run automated campaigns all in one platform.
-        </p>
+      <ul class="feature-list">
+  <li>
+    <span class="icon">🚀</span>
+    <div>
+      <strong>Boost Customer Retention:</strong>
+      Convert first-time diners into loyal, repeat customers.
+    </div>
+  </li>
+
+  <li>
+    <span class="icon">💬</span>
+    <div>
+      <strong>Capture Valuable Insights:</strong>
+      Collect and manage guest feedback easily with automated tools.
+    </div>
+  </li>
+
+  <li>
+    <span class="icon">🎁</span>
+    <div>
+      <strong>Simplify Loyalty Programs:</strong>
+      Manage rewards and engagement without complexity.
+    </div>
+  </li>
+
+  <li>
+    <span class="icon">📊</span>
+    <div>
+      <strong>Drive Data-Driven Growth:</strong>
+      Turn guest data into targeted campaigns that increase long-term revenue.
+    </div>
+  </li>
+</ul>
+
+<style>
+.feature-list {
+  list-style: none;
+  padding: 0;
+  max-width: 750px;
+  margin: 30px auto 0 auto;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 18px;
+  font-size: 17px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Icon size fix */
+.feature-list li span.icon {
+  font-size: 20px;
+  margin-top: 3px;
+  min-width: 25px;
+}
+.home-three h1 {
+    font-size: 40px;
+}
+</style>
 
         <div class="banner-btn-group">
           <a class="open-demo saaslyn-4-btn v2 js-scroll-contact" href="">
             Start Free Trial
-            <i class="fa-light fa-arrow-right-long"></i>
+           
           </a>
 
           
@@ -207,18 +304,85 @@ html {
 <!--================= Banner section end =================-->
 
 
-       
-      <section class="brand-area  pt-40 pb-40">
+      <section class="brand-area  pt-40 pb-40 lazy-section">
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              <h2
-                class="commitment-brand-title text-uppercase text-center pb-60"
-              >
-            Trusted by 2000+ Restaurants
-              </h2>
+
+<h2 class="commitment-brand-title text-uppercase text-center pb-60 reveal-title">
+  <span>Trusted</span>
+  <span>by</span>
+  <span class="highlight">2000+</span>
+  <span>Restaurants</span>
+</h2>
+<style>
+
+/* Container */
+.reveal-title{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 44px;
+  font-weight: 800;
+  overflow: hidden;
+}
+
+/* Each Word */
+.reveal-title span{
+  opacity: 0;
+  transform: translateY(60px) rotateX(90deg);
+  animation: reveal 0.8s ease forwards;
+}
+
+/* Delay */
+.reveal-title span:nth-child(1){animation-delay:0.2s;}
+.reveal-title span:nth-child(2){animation-delay:0.4s;}
+.reveal-title span:nth-child(3){animation-delay:0.6s;}
+.reveal-title span:nth-child(4){animation-delay:0.8s;}
+
+/* Highlight */
+.reveal-title .highlight{
+  color:#f78e26;
+  text-shadow:0 0 15px #f78e26;
+  animation: reveal 0.8s ease forwards,
+             pulse 1.5s infinite;
+}
+
+/* Reveal Effect */
+@keyframes reveal{
+  to{
+    opacity:1;
+    transform:translateY(0) rotateX(0);
+  }
+}
+
+/* Glow Pulse */
+@keyframes pulse{
+  0%,100%{text-shadow:0 0 8px #ffb703;}
+  50%{text-shadow:0 0 25px #fb8500;}
+}
+
+</style>
+
+
+
               <div class="swiper brand-slide-wrap side-shadow">
                 <div class="swiper-wrapper">
+					 <div class="swiper-slide">
+                    <div class="brand-box">
+                     <img src="assets/images/raydan.jpeg">
+                    </div>
+                  </div>
+					 <div class="swiper-slide">
+                    <div class="brand-box">
+                     <img src="assets/images/gil.jpg">
+                    </div>
+                  </div>
+					 <div class="swiper-slide">
+                    <div class="brand-box">
+                     <img src="assets/images/zaika.webp">
+                    </div>
+                  </div>
                   <div class="swiper-slide">
                     <div class="brand-box">
                      <img src="assets/images/Bait-Al-Mandi.png">
@@ -256,7 +420,7 @@ html {
                   </div>
 					<div class="swiper-slide">
                     <div class="brand-box">
-                     <img src="assets/images/marugame.jpeg">
+                     <img src="assets/images/marugame.webp">
                     </div>
                   </div>
 					<div class="swiper-slide">
@@ -294,7 +458,7 @@ html {
 
 			
 			 
-<section class="about-5 section pt-40 pb-40">
+<section class="about-5 section pt-40 pb-40 lazy-section">
 
 
   <div class="container ">
@@ -347,21 +511,42 @@ html {
 
 
 			
-			<section class="features-section pt-40 pb-40">
+			
+			<section class="features-section pt-40 pb-40 lazy-section">
 				<h2 class="commitment-brand-title text-uppercase text-center pb-60">
             Key Benefits of PosBytz CRM
               </h2>
   <div class="container">
 
-    <!-- Tabs -->
-    <div class="feature-tabs">
-      <button class="tab active" data-tab="feedback">Feedback Management</button>
-      <button class="tab" data-tab="campaigns">Automated Campaigns</button>
-      <button class="tab" data-tab="loyalty">Loyalty Rewards</button>
-		 <button class="tab" data-tab="marketing">Multi-Channel Marketing</button>
-      <button class="tab" data-tab="pos">Customer Retention</button>
-     
-    </div>
+   <div class="feature-tabs">
+
+  <button class="tab active" data-tab="feedback">
+    <i class="fa-solid fa-star"></i>
+    Feedback
+  </button>
+
+  <button class="tab" data-tab="campaigns">
+    <i class="fa-solid fa-bullhorn"></i>
+    Campaigns
+  </button>
+
+  <button class="tab" data-tab="loyalty">
+    <i class="fa-solid fa-gift"></i>
+    Loyalty
+  </button>
+
+  <button class="tab" data-tab="marketing">
+    <i class="fa-solid fa-share-nodes"></i>
+    Marketing
+  </button>
+
+  <button class="tab" data-tab="pos">
+    <i class="fa-solid fa-heart"></i>
+    Retention
+  </button>
+
+</div>
+
 
     <!-- Content -->
     <div class="feature-box">
@@ -461,203 +646,220 @@ html {
   </div>
 </section>
 <style>
-	
 	/* ===============================
-   COLOR VARIABLES (easy tweak)
+   ROOT COLORS
 ================================ */
 :root {
-  --feedback: #f97316;   /* orange */
-  --campaigns: #ce4b30;  /* blue */
-  --loyalty: #22c55e;    /* green */
-  --marketing: #a855f7;  /* purple */
-  --retention: #ec4899;  /* pink */
+  --feedback: #f97316;
+  --campaigns: #ef4444;
+  --loyalty: #22c55e;
+  --marketing: #8b5cf6;
+  --retention: #ec4899;
 }
 
 /* ===============================
-   ACTIVE TAB COLORS
+   SECTION
 ================================ */
+.features-section {
+  background: linear-gradient(135deg, #fff7ed, #ffffff);
+  padding: 60px 0;
+}
+
+/* ===============================
+   TABS
+================================ */
+.feature-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+/* Tab Button */
+.feature-tabs .tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 24px;
+  border-radius: 50px;
+
+  background: rgba(255,255,255,0.9);
+  border: 1px solid #e5e7eb;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Icon */
+.feature-tabs .tab i {
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+/* Hover */
+.feature-tabs .tab:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+/* Active Tab */
+.feature-tabs .tab.active {
+  color: #fff;
+  border: none;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* Active Colors */
 .tab[data-tab="feedback"].active {
-  border-color: var(--feedback) !important;
-  
+  background: linear-gradient(135deg, #fb923c, #f97316);
 }
 
 .tab[data-tab="campaigns"].active {
-  border-color: var(--campaigns) !important;
-
+  background: linear-gradient(135deg, #f87171, #ef4444);
 }
 
 .tab[data-tab="loyalty"].active {
-  border-color: var(--loyalty) !important;
- 
+  background: linear-gradient(135deg, #4ade80, #22c55e);
 }
 
 .tab[data-tab="marketing"].active {
-  border-color: var(--marketing) !important;
-
+  background: linear-gradient(135deg, #a78bfa, #8b5cf6);
 }
 
 .tab[data-tab="pos"].active {
-  border-color: var(--retention) !important;
- 
+  background: linear-gradient(135deg, #f472b6, #ec4899);
 }
 
 /* ===============================
-   FEATURE BOX COLOR CHANGE
-   based on active tab
+   FEATURE BOX
 ================================ */
+.feature-box {
+  background: rgba(255,255,255,0.95);
 
-/* Feedback */
+  border-radius: 20px;
+  padding: 45px;
+
+  border: 2px solid transparent;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+
+  transition: all 0.4s ease;
+}
+
+/* Border Color Sync */
 .features-section:has(.tab.active[data-tab="feedback"]) .feature-box {
-  border-color: var(--feedback) !important;
+  border-color: var(--feedback);
 }
 
-
-/* Campaigns */
 .features-section:has(.tab.active[data-tab="campaigns"]) .feature-box {
-  border-color: var(--campaigns) !important;
+  border-color: var(--campaigns);
 }
 
-
-/* Loyalty */
 .features-section:has(.tab.active[data-tab="loyalty"]) .feature-box {
-  border-color: var(--loyalty) !important;
+  border-color: var(--loyalty);
 }
 
-
-/* Marketing */
 .features-section:has(.tab.active[data-tab="marketing"]) .feature-box {
-  border-color: var(--marketing) !important; 
+  border-color: var(--marketing);
 }
 
-
-/* Retention */
 .features-section:has(.tab.active[data-tab="pos"]) .feature-box {
-  border-color: var(--retention) !important;
+  border-color: var(--retention);
 }
 
-
-	.feature-grid {
+/* ===============================
+   GRID
+================================ */
+.feature-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 40px;
-
-  /* 🔥 THIS IS THE KEY */
   align-items: center;
 }
 
+/* Text */
 .feature-text {
-  max-width: 520px;
+  max-width: 550px;
 }
 
 .feature-text h2 {
-  font-size: 28px;
-  margin-bottom: 16px;
+  font-size: 32px;
+  margin-bottom: 18px;
+  font-weight: 700;
 }
 
 .feature-text p {
-
-  margin-bottom: 14px;
-  line-height: 1.7;
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #334155;
 }
 
+/* Image */
 .feature-grid img {
   max-width: 100%;
-  display: block;
-  margin: auto;
+  border-radius: 14px;
+
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+
+  transition: transform 0.4s ease;
 }
 
-			.features-section {
-  background: #fff;
+.feature-grid img:hover {
+  transform: scale(1.05);
 }
 
-.feature-tabs {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
-}
-
-.feature-tabs .tab {
-     padding: 20px 20px;
-
-  border-radius: 30px;
-  border: 1px solid #e5e7eb;
-  background: #f9fafb;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.feature-tabs .tab.active {
-  border-color: #f97316;
-
-      background: #ffffff;
-}
-
-.feature-box {
-  border: 2px solid #f97316;
-  border-radius: 16px;
-  padding: 40px;
-}
-
+/* ===============================
+   CONTENT SWITCH
+================================ */
 .feature-content {
   display: none;
+  animation: fadeIn 0.6s ease;
 }
 
 .feature-content.active {
   display: block;
 }
 
-.feature-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 40px;
-}
-
-.feature-text h2 {
-  font-size: 28px;
-  margin-bottom: 15px;
-}
-
-.feature-text p {
-     font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.feature-text ul {
-  padding-left: 20px;
-}
-
-.feature-text li {
-  margin-bottom: 10px;
-}
-
-.feature-mock {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.stat-card {
-  background: #fff7ed;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  font-size: 26px;
-  font-weight: 700;
-}
-
-.stat-card span {
-  display: block;
-  font-size: 13px;
-  color: #475569;
-  margin-top: 5px;
-}
-
-@media(max-width: 768px) {
-  .feature-grid {
-    grid-template-columns: 1fr;
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+/* ===============================
+   MOBILE
+================================ */
+@media(max-width: 768px) {
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .feature-text h2 {
+    font-size: 26px;
+  }
+
+  .feature-tabs {
+    justify-content: center;
+  }
+
+}
+
 </style>
 			
 	<script>
@@ -675,19 +877,15 @@ html {
   });
 </script>
 		
-			
-			
-    <section class="service-area pt-40 pb-40 position-relative z-index-one overflow-hidden">
+	<section class="service-area pt-40 pb-40 position-relative z-index-one overflow-hidden lazy-section">
   <div class="container">
     <!-- Section Title -->
     <div class="row justify-content-center">
       <div class="col-lg-7">
         <div class="section-title text-center">
-          <h2 class="title text_color_white text-anim">
-            Why Restaurants Choose PosBytz CRM
-          </h2>
+          <h2 class="title text_color_white text-anim" style="perspective: 400px;"><div style="display: block; text-align: center; position: relative; translate: none; rotate: none; scale: none; transform-origin: 362.5px 18px; transform: translate3d(0px, 0px, 0px); opacity: 1;"> Why Restaurants Choose PosBytz CRM </div></h2>
           <p class="desc ">
-            An all-in-one restaurant CRM & ERP platform built to increase repeat
+            An all-in-one restaurant CRM &amp; ERP platform built to increase repeat
             customers, improve guest experience, and simplify operations.
           </p>
         </div>
@@ -739,7 +937,7 @@ html {
 <i class="ri-award-line"></i>
 
   </div>
-            <h3>Smart Loyalty & Rewards</h3>
+            <h3>Smart Loyalty &amp; Rewards</h3>
             <p>
               Simple and flexible rewards programs that encourage repeat
               orders, increase average order value, and turn first-time guests
@@ -792,7 +990,7 @@ html {
             <h3>Complete Restaurant ERP</h3>
             <p>
               Manage POS, inventory, online ordering, accounting, reports, and
-              CRM from one powerful platform—no multiple tools, no chaos.
+              CRM from one powerful platform no multiple tools, no chaos.
             </p>
           </div>
         </div>
@@ -802,511 +1000,339 @@ html {
   </div>
 
   <!-- Background Shape -->
-  <img
-    class="position-absolute z-index-minus-one translate-middle top-50 start-50"
-    src="assets/images/service-bg-sp.png"
-    alt="service background"
-  />
+  <img class="position-absolute z-index-minus-one translate-middle top-50 start-50" src="assets/images/service-bg-sp.png" alt="service background">
 </section>
 
-			
-		
-			
-			
-			
-			
-          <!--================= Testimonial section start =================-->
-          <section
-            class="testimonial-3 section section-padding-top-bottom overflow-hidden"
-          >
-            <div class="container">
-              <div class="row g-2 justify-content-between align-items-end">
-                <div class="col-md-6 col-lg-6 col-xl-6">
-                  <div class="section-header-3">
-                    <span class="text-uppercase text_color_white gradient-sub section-sub-title">Testimonials</span>
-                    <h2 class="section-title text-anime">
-                      What our awesome Customers say
-                    </h2>
-                  </div>
-                </div>
-                
-              </div>
-              <div class="row row-padding-top saaslyn_screenfix_right">
-                <div class="col-12">
-                  <div class="swiper testimonial-3__slider">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">
-                        <div class="testimonial-3__item">
-                          <div class="triangle">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="52"
-                              height="150"
-                              viewBox="0 0 52 150"
-                              fill="none"
-                            >
-                              <path
-                                d="M35.6612 36.6382C56.4441 57.9905 56.4441 92.0095 35.6612 113.362L1.07269e-06 150L7.62939e-06 -3.19093e-06L35.6612 36.6382Z"
-                                fill="currentColor"
-                                fill-opacity="0.08"
-                              />
-                            </svg>
-                          </div>
-                          <div class="item-content">
-                            <div class="item-header">
-                              <div class="rating-stars">
-                                <ul>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                </ul>
-                              </div>
-                              <div class="icon">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="48"
-                                  height="38"
-                                  viewBox="0 0 48 38"
-                                  fill="none"
-                                >
-                                  <path
-                                    opacity="0.16"
-                                    d="M2 0H18C19.1046 0 20 0.89543 20 2V17.1716C20 17.702 19.7893 18.2107 19.4142 18.5858L1.70711 36.2929C1.07714 36.9229 0 36.4767 0 35.5858V2C0 0.895431 0.895431 0 2 0Z"
-                                    fill="currentColor"
-                                  />
-                                  <path
-                                    opacity="0.16"
-                                    d="M30 0H46C47.1046 0 48 0.89543 48 2V17.1716C48 17.702 47.7893 18.2107 47.4142 18.5858L29.7071 36.2929C29.0771 36.9229 28 36.4767 28 35.5858V2C28 0.895431 28.8954 0 30 0Z"
-                                    fill="currentColor"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <div class="item-author">
-								<div class="author-avatar">
-                                <img
-                                  src="assets/images/nashama_coffee-100x100.webp"
-                                  alt="author"
-                                />
-                              </div>
-                    <h6 class="author-title">Al Nashama Coffee</h6>
-                    <span class="author-designation">Qatar</span>
-                  </div>
-                          <p>
-                    We sell Italian aroma coffee at our outlets. PosBytz has been
-                    a very simple to use POS system and we have been using it for
-                    our business for a few years now.
-                  </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div class="testimonial-3__item">
-                          <div class="triangle">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="52"
-                              height="150"
-                              viewBox="0 0 52 150"
-                              fill="none"
-                            >
-                              <path
-                                d="M35.6612 36.6382C56.4441 57.9905 56.4441 92.0095 35.6612 113.362L1.07269e-06 150L7.62939e-06 -3.19093e-06L35.6612 36.6382Z"
-                                fill="currentColor"
-                                fill-opacity="0.08"
-                              />
-                            </svg>
-                          </div>
-                          <div class="item-content">
-                            <div class="item-header">
-                              <div class="rating-stars">
-                                <ul>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                </ul>
-                              </div>
-                              <div class="icon">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="48"
-                                  height="38"
-                                  viewBox="0 0 48 38"
-                                  fill="none"
-                                >
-                                  <path
-                                    opacity="0.16"
-                                    d="M2 0H18C19.1046 0 20 0.89543 20 2V17.1716C20 17.702 19.7893 18.2107 19.4142 18.5858L1.70711 36.2929C1.07714 36.9229 0 36.4767 0 35.5858V2C0 0.895431 0.895431 0 2 0Z"
-                                    fill="currentColor"
-                                  />
-                                  <path
-                                    opacity="0.16"
-                                    d="M30 0H46C47.1046 0 48 0.89543 48 2V17.1716C48 17.702 47.7893 18.2107 47.4142 18.5858L29.7071 36.2929C29.0771 36.9229 28 36.4767 28 35.5858V2C28 0.895431 28.8954 0 30 0Z"
-                                    fill="currentColor"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <div class="item-author">
-                              <div class="author-avatar">
-                                <img
-                                  src="assets/images/Sams-Pizza.png"
-                                  alt="author"
-                                />
-                              </div>
-                              <h6 class="author-title">Sam’s Pasta Pizza</h6>
-                              <span class="author-designation"
-                                >Qatar</span
-                              >
-                            </div>
-                            <p>
-                              We are a traditional Italian cuisine–based brand. We have been using PosBytz for our restaurant management operations and so far there have been no issues with respect to the software.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div class="testimonial-3__item">
-                          <div class="triangle">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="52"
-                              height="150"
-                              viewBox="0 0 52 150"
-                              fill="none"
-                            >
-                              <path
-                                d="M35.6612 36.6382C56.4441 57.9905 56.4441 92.0095 35.6612 113.362L1.07269e-06 150L7.62939e-06 -3.19093e-06L35.6612 36.6382Z"
-                                fill="currentColor"
-                                fill-opacity="0.08"
-                              />
-                            </svg>
-                          </div>
-                          <div class="item-content">
-                            <div class="item-header">
-                              <div class="rating-stars">
-                                <ul>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                </ul>
-                              </div>
-                              <div class="icon">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="48"
-                                  height="38"
-                                  viewBox="0 0 48 38"
-                                  fill="none"
-                                >
-                                  <path
-                                    opacity="0.16"
-                                    d="M2 0H18C19.1046 0 20 0.89543 20 2V17.1716C20 17.702 19.7893 18.2107 19.4142 18.5858L1.70711 36.2929C1.07714 36.9229 0 36.4767 0 35.5858V2C0 0.895431 0.895431 0 2 0Z"
-                                    fill="currentColor"
-                                  />
-                                  <path
-                                    opacity="0.16"
-                                    d="M30 0H46C47.1046 0 48 0.89543 48 2V17.1716C48 17.702 47.7893 18.2107 47.4142 18.5858L29.7071 36.2929C29.0771 36.9229 28 36.4767 28 35.5858V2C28 0.895431 28.8954 0 30 0Z"
-                                    fill="currentColor"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <div class="item-author">
-                              <div class="author-avatar">
-                                <img
-                                  src="assets/images/Teklos-100x100-1.webp"
-                                  alt="author"
-                                />
-                              </div>
-                              <h6 class="author-title">Teklos</h6>
-                              <span class="author-designation"
-                                >UAE</span
-                              >
-                            </div>
-                            <p>
-                             We are a UAE-based F&B brand with both restaurant and online presence. With PosBytz, we are able to manage both outlets and online ordering through Talabat and Careem in one POS.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div class="testimonial-3__item">
-                          <div class="triangle">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="52"
-                              height="150"
-                              viewBox="0 0 52 150"
-                              fill="none"
-                            >
-                              <path
-                                d="M35.6612 36.6382C56.4441 57.9905 56.4441 92.0095 35.6612 113.362L1.07269e-06 150L7.62939e-06 -3.19093e-06L35.6612 36.6382Z"
-                                fill="currentColor"
-                                fill-opacity="0.08"
-                              />
-                            </svg>
-                          </div>
-                          <div class="item-content">
-                            <div class="item-header">
-                              <div class="rating-stars">
-                                <ul>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                </ul>
-                              </div>
-                              <div class="icon">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="48"
-                                  height="38"
-                                  viewBox="0 0 48 38"
-                                  fill="none"
-                                >
-                                  <path
-                                    opacity="0.16"
-                                    d="M2 0H18C19.1046 0 20 0.89543 20 2V17.1716C20 17.702 19.7893 18.2107 19.4142 18.5858L1.70711 36.2929C1.07714 36.9229 0 36.4767 0 35.5858V2C0 0.895431 0.895431 0 2 0Z"
-                                    fill="currentColor"
-                                  />
-                                  <path
-                                    opacity="0.16"
-                                    d="M30 0H46C47.1046 0 48 0.89543 48 2V17.1716C48 17.702 47.7893 18.2107 47.4142 18.5858L29.7071 36.2929C29.0771 36.9229 28 36.4767 28 35.5858V2C28 0.895431 28.8954 0 30 0Z"
-                                    fill="currentColor"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <div class="item-author">
-                              <div class="author-avatar">
-                                <img
-                                  src="assets/images/tabiboba_new_pink_logo-1.png"
-                                  alt="author"
-                                />
-                              </div>
-                              <h6 class="author-title">Tabiboba</h6>
-                              <span class="author-designation"
-                                >Qatar</span
-                              >
-                            </div>
-                            <p>
-                              We have been using PosBytz for our entire operations across 12 outlets — from procurement and boba recipe preparation to stock transfers, accounting, POS billing, and online ordering.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div class="testimonial-3__item">
-                          <div class="triangle">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="52"
-                              height="150"
-                              viewBox="0 0 52 150"
-                              fill="none"
-                            >
-                              <path
-                                d="M35.6612 36.6382C56.4441 57.9905 56.4441 92.0095 35.6612 113.362L1.07269e-06 150L7.62939e-06 -3.19093e-06L35.6612 36.6382Z"
-                                fill="currentColor"
-                                fill-opacity="0.08"
-                              />
-                            </svg>
-                          </div>
-                          <div class="item-content">
-                            <div class="item-header">
-                              <div class="rating-stars">
-                                <ul>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                </ul>
-                              </div>
-                              <div class="icon">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="48"
-                                  height="38"
-                                  viewBox="0 0 48 38"
-                                  fill="none"
-                                >
-                                  <path
-                                    opacity="0.16"
-                                    d="M2 0H18C19.1046 0 20 0.89543 20 2V17.1716C20 17.702 19.7893 18.2107 19.4142 18.5858L1.70711 36.2929C1.07714 36.9229 0 36.4767 0 35.5858V2C0 0.895431 0.895431 0 2 0Z"
-                                    fill="currentColor"
-                                  />
-                                  <path
-                                    opacity="0.16"
-                                    d="M30 0H46C47.1046 0 48 0.89543 48 2V17.1716C48 17.702 47.7893 18.2107 47.4142 18.5858L29.7071 36.2929C29.0771 36.9229 28 36.4767 28 35.5858V2C28 0.895431 28.8954 0 30 0Z"
-                                    fill="currentColor"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <div class="item-author">
-                              <div class="author-avatar">
-                                <img
-                                  src="assets/images/Jazz-cafe-100x100.webp"
-                                  alt="author"
-                                />
-                              </div>
-                              <h6 class="author-title">JazzCafe</h6>
-                              <span class="author-designation"
-                                >KSA</span
-                              >
-                            </div>
-                            <p>
-                              PosBytz Café POS software is very easy to use, and the inventory management system helps us accurately manage inventory and correct leakages. We are running our business profitably with PosBytz.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div class="testimonial-3__item">
-                          <div class="triangle">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="52"
-                              height="150"
-                              viewBox="0 0 52 150"
-                              fill="none"
-                            >
-                              <path
-                                d="M35.6612 36.6382C56.4441 57.9905 56.4441 92.0095 35.6612 113.362L1.07269e-06 150L7.62939e-06 -3.19093e-06L35.6612 36.6382Z"
-                                fill="currentColor"
-                                fill-opacity="0.08"
-                              />
-                            </svg>
-                          </div>
-                          <div class="item-content">
-                            <div class="item-header">
-                              <div class="rating-stars">
-                                <ul>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                  <li>
-                                    <i class="fa-sharp fa-solid fa-star"></i>
-                                  </li>
-                                </ul>
-                              </div>
-                              <div class="icon">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="48"
-                                  height="38"
-                                  viewBox="0 0 48 38"
-                                  fill="none"
-                                >
-                                  <path
-                                    opacity="0.16"
-                                    d="M2 0H18C19.1046 0 20 0.89543 20 2V17.1716C20 17.702 19.7893 18.2107 19.4142 18.5858L1.70711 36.2929C1.07714 36.9229 0 36.4767 0 35.5858V2C0 0.895431 0.895431 0 2 0Z"
-                                    fill="currentColor"
-                                  />
-                                  <path
-                                    opacity="0.16"
-                                    d="M30 0H46C47.1046 0 48 0.89543 48 2V17.1716C48 17.702 47.7893 18.2107 47.4142 18.5858L29.7071 36.2929C29.0771 36.9229 28 36.4767 28 35.5858V2C28 0.895431 28.8954 0 30 0Z"
-                                    fill="currentColor"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <div class="item-author">
-                              <div class="author-avatar">
-                                <img
-                                  src="assets/images/maaza-100x100.webp"
-                                  alt="author"
-                                />
-                              </div>
-                              <h6 class="author-title">Mazaarabia</h6>
-                              <span class="author-designation"
-                                >KSA</span
-                              >
-                            </div>
-                            <p>
-                              We operate a broasted chicken brand across KSA with around 25 outlets and growing. PosBytz has automated our entire operations from purchases and inventory to sales and online ordering.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <!--================= Testimonial section end =================-->
+<style>
+
+/* Arrows */
+.arrow{
+    position:absolute;
+    top:60%;
+    transform:translateY(-50%);
+    background:#f78e26;
+    border:none;
+    color:#fff;
+    font-size:22px;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    cursor:pointer;
+    transition:0.3s;
+    z-index:10;
+}
+
+.arrow:hover{
+    background:#d97412;
+}
+
+.arrow.left{
+    left:15px;
+}
+
+.arrow.right{
+    right:15px;
+}
+
+
+/* Section */
+.testimonial-section{
+    max-width:900px;
+    margin:80px auto;
+    text-align:center;
+    padding:20px;
+}
+
+/* Heading */
+.testimonial-section h2{
+    color:#222;
+    font-size:36px;
+    margin-bottom:40px;
+}
+
+/* Slider */
+.testimonial-slider{
+    position:relative;
+    overflow:hidden;
+    border-radius:15px;
+}
+
+/* Track */
+.testimonial-track{
+    display:flex;
+    transition:transform 0.7s ease-in-out;
+}
+
+/* Card */
+.testimonial-card{
+    min-width:100%;
+    background:#ffffff;
+    padding:50px 40px;
+   
+    border-radius:15px;
+    border:1px solid #f78e26;
+}
+
+/* Logo */
+.testimonial-logo{
+    width:100px;
+    height:auto;
+    margin:0 auto 20px;
+    display:block;
+}
+
+/* Text */
+.testimonial-text{
+    font-size:18px;
+    line-height:1.7;
+    color:#444;
+    margin-bottom:25px;
+}
+
+/* Name */
+.testimonial-name{
+    font-size:22px;
+    font-weight:600;
+    color:#111;
+}
+
+/* Role */
+.testimonial-role{
+    font-size:15px;
+    color:#777;
+    margin-top:5px;
+}
+
+/* Dots */
+.dots{
+    margin-top:25px;
+}
+
+.dot{
+    height:12px;
+    width:12px;
+    background:#ccc;
+    display:inline-block;
+    border-radius:50%;
+    margin:0 6px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.dot.active{
+    background:#000;
+    transform:scale(1.3);
+}
+
+@media(max-width:768px){
+    .testimonial-card{
+        padding:35px 25px;
+    }
+
+    .testimonial-text{
+        font-size:16px;
+    }
+}
+
+</style>
+
+<section class="testimonial-section lazy-section">
+
+<h2>What our awesome Customers say
+</h2>
+
+<div class="testimonial-slider">
+
+    <button class="arrow left" id="prevBtn">&#10094;</button>
+    <button class="arrow right" id="nextBtn">&#10095;</button>
+
+    <div class="testimonial-track" id="slider">
+
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+
+            <img src="assets/images/Bait-Al-Mandi.png" class="testimonial-logo" alt="Bait Al Mandi">
+
+            <p class="testimonial-text">
+                “Across our 25+ UAE outlets, PosBytz ERP empowers us with centralized control and a powerful CRM that tracks customer feedback, manages loyalty programs, and runs targeted WhatsApp campaigns to drive repeat business. With integrated online ordering, real-time inventory, and seamless accounting, we operate smarter and grow stronger.”
+            </p>
+
+            <div class="testimonial-name">Bait Al Mandi</div>
+            <div class="testimonial-role">IT Manager, Dubai</div>
+
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+
+            <img src="assets/images/karak.jpeg" class="testimonial-logo" alt="Karakccino">
+
+            <p class="testimonial-text">
+                “As a fast-growing QSR brand with 6+ outlets, PosBytz ERP helps us maintain speed, consistency, and control. The powerful CRM drives loyalty programs, captures customer feedback, and runs targeted WhatsApp campaigns. With integrated online ordering, real-time inventory, and seamless accounting, we scale efficiently and serve smarter every day.”
+            </p>
+
+            <div class="testimonial-name">Karakccino, UAE</div>
+            <div class="testimonial-role">Owner, Dubai</div>
+
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+
+            <img src="assets/images/gil.jpg" class="testimonial-logo" alt="Gil Bunsik">
+
+            <p class="testimonial-text">
+                “With PosBytz ERP, managing our delivery-focused operations has become effortless. Seamless integration with multiple delivery aggregators centralizes all orders into one POS system, eliminating errors and improving kitchen efficiency. The powerful CRM helps us track customer preferences, capture feedback, and run targeted campaigns that drive repeat orders. PosBytz enables us to deliver authentic Korean flavors with operational excellence every day.”
+            </p>
+
+            <div class="testimonial-name">Gil Bunsik</div>
+            <div class="testimonial-role">Operational Head, Dubai</div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="dots" id="dots"></div>
+
+</section>
+
+
+<script>
+
+const slider = document.getElementById("slider");
+const slides = document.querySelectorAll(".testimonial-card");
+const dotsContainer = document.getElementById("dots");
+
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+let index = 0;
+let interval = 5000;
+let autoSlideInterval;
+
+/* Create Dots */
+slides.forEach((slide, i) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if(i === 0) dot.classList.add("active");
+
+    dot.addEventListener("click", () => {
+        index = i;
+        updateSlider();
+        resetAuto();
+    });
+
+    dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll(".dot");
+
+/* Update Slider */
+function updateSlider(){
+    slider.style.transform = `translateX(-${index * 100}%)`;
+
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[index].classList.add("active");
+}
+
+/* Next */
+function nextSlide(){
+    index++;
+    if(index >= slides.length){
+        index = 0;
+    }
+    updateSlider();
+}
+
+/* Prev */
+function prevSlide(){
+    index--;
+    if(index < 0){
+        index = slides.length - 1;
+    }
+    updateSlider();
+}
+
+/* Buttons */
+nextBtn.addEventListener("click", () => {
+    nextSlide();
+    resetAuto();
+});
+
+prevBtn.addEventListener("click", () => {
+    prevSlide();
+    resetAuto();
+});
+
+/* Auto Slide */
+function startAuto(){
+    autoSlideInterval = setInterval(nextSlide, interval);
+}
+
+function resetAuto(){
+    clearInterval(autoSlideInterval);
+    startAuto();
+}
+
+startAuto();
+
+/* Drag / Swipe Support */
+
+let startX = 0;
+let isDragging = false;
+
+/* Mouse */
+slider.addEventListener("mousedown", (e)=>{
+    startX = e.clientX;
+    isDragging = true;
+});
+
+slider.addEventListener("mouseup", (e)=>{
+    if(!isDragging) return;
+
+    let endX = e.clientX;
+    handleSwipe(startX, endX);
+    isDragging = false;
+});
+
+slider.addEventListener("mouseleave", ()=>{
+    isDragging = false;
+});
+
+/* Touch (Mobile) */
+slider.addEventListener("touchstart", (e)=>{
+    startX = e.touches[0].clientX;
+});
+
+slider.addEventListener("touchend", (e)=>{
+    let endX = e.changedTouches[0].clientX;
+    handleSwipe(startX, endX);
+});
+
+/* Swipe Logic */
+function handleSwipe(start, end){
+
+    let diff = start - end;
+
+    if(diff > 50){
+        nextSlide();
+        resetAuto();
+    }
+    else if(diff < -50){
+        prevSlide();
+        resetAuto();
+    }
+
+}
+
+</script>
+
+
 
         <section
-        class="subscribe-area  position-relative z-index-one"
+        class="subscribe-area  position-relative z-index-one lazy-section"
       >
         <div class="container">
           <div class="row">
@@ -1377,7 +1403,7 @@ html {
       </section>
 
 			
-<section class="contact" id="contact">
+<section class="contact lazy-section" id="contact">
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info animate-on-scroll visible">
