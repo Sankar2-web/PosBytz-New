@@ -1546,36 +1546,82 @@ function handleSwipe(start, end){
 </form>
 
 <script>
-const fetch = require("node-fetch");
+document.getElementById("contactForm").addEventListener("submit", async function(e){
 
-const raw = {
-  name: "Muthukrishnan",
-  email: "kathiresan+2997@bytize.in",
-  phone: "8189970957",
-  calling_code: "91",
-  source: "website",
-  password: "qwert@123",
-  location_name: "guindy",
-  business_type_id: 1,
-  business_name: "big basket",
-  country_code: "in"
-};
+    e.preventDefault();
 
-fetch("https://partner-api.posbytz.dev/partner-api/v1/leads/signup", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json",
-        "x-partner-domain": "posbytz.dev",
-        "Client": "store-owner-app",
-        "x-api-key": "YOUR_REAL_KEY"
-    },
-    body: JSON.stringify(raw)
-})
-.then(res => res.json())
-.then(data => console.log(data))
-.catch(err => console.error(err));
+    const name = document.querySelector('[name="fullname"]').value.trim();
+    const business = document.querySelector('[name="businessname"]').value.trim();
+    const email = document.querySelector('[name="email"]').value.trim();
+    const phone = document.querySelector('[name="phone"]').value.trim();
+    const type = document.querySelector('[name="businesstype"]').value;
+    const terms = document.getElementById("terms");
 
+    if(!name || !email || !phone || !type){
+        alert("Fill all required fields");
+        return;
+    }
+
+    if(!terms.checked){
+        alert("Accept Terms & Conditions");
+        return;
+    }
+
+    const cleanPhone = phone.replace(/\D/g,"");
+
+    if(cleanPhone.length !== 10){
+        alert("Enter valid 10 digit number");
+        return;
+    }
+
+    let typeId = "7";
+    if(type==="retail") typeId="8";
+    if(type==="others") typeId="9";
+    if(type==="Cloud") typeId="10";
+    if(type==="Resto") typeId="11";
+
+    const payload = {
+        name: name,
+        phone: cleanPhone,
+        calling_code: "91",
+        email: email,
+        country_code: "in",
+        business_name: business || "Demo Business",
+        location_name: "India",
+        business_type_id: typeId,
+        source: "website",
+        password: "qwert@123"   // required if API demands
+    };
+
+    try {
+
+        const res = await fetch("submit.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+
+        console.log("Response:", data);
+
+        if(data.success || data.status==="success"){
+            alert("✅ Submitted Successfully");
+            document.getElementById("contactForm").reset();
+        } else {
+            alert("❌ Failed: " + (data.message || "Rejected"));
+        }
+
+    } catch(err) {
+        console.error(err);
+        alert("Server Error");
+    }
+
+});
 </script>
+
 
 
 
@@ -1870,6 +1916,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 </html>
+
 
 
 
